@@ -3,6 +3,7 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
 	<title>Login</title>
@@ -18,34 +19,34 @@
 			<h1>Seja bem vindo !</h1>
 			<p>Compre seu iphone com qualidade e preços surreais!</p>
 			<p>Venha conhecer nosso produtos. Faça seu login ou cadastre-se.</p>
-			<form>
-				<h:commandButton value="SIGN IN" />
-			</form>
+			<h1 class="soon"><span>RR</span>Iphones.</h1>
 		</div>
 
 		<div class="right">
+			<ui:insert name="signInOrSignUp">
+				<h2>Login</h2>
 
-			<h2>Login</h2>
+				<h:form>
+					<h:outputLabel>
+						<span class="material-icons"> person_outline </span>
+						<h:inputText pt:placeholder="Email" />
+					</h:outputLabel>
 
-			<form>
-				<h:outputLabel>
-					<span class="material-icons"> person_outline </span>
-					<h:inputText pt:placeholder="Email" />
-				</h:outputLabel>
-
-				<h:outputLabel>
-					<span class="material-icons"> lock </span>
-					<h:inputSecret pt:placeholder="Password" />
-				</h:outputLabel>
-
-
+					<h:outputLabel>
+						<span class="material-icons"> lock </span>
+						<h:inputSecret pt:placeholder="Password" />
+					</h:outputLabel>
 
 
-				<h:commandButton class="btn-login" value="SIGN UP" />
 
-				<h:commandLink>Esqueceu a senha ?</h:commandLink>
 
-			</form>
+					<h:commandButton class="btn-login" value="ENTRAR" />
+
+					<h:commandLink>Esqueceu a senha ?</h:commandLink>
+					<h:commandLink action="initialregister.xhtml?faces-redirect=true">ou cadastre-se!</h:commandLink>
+
+				</h:form>
+			</ui:insert>
 		</div>
 
 	</div>

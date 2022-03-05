@@ -10,7 +10,7 @@ html, body{
   --header-height: 4.5rem;
 
   /* colors */
-  --hue: 163;
+  --hue: 183;
   /* HSL color mode */
   --base-color: hsl(var(--hue) 36% 57%);
   --base-color-second: hsl(var(--hue) 65% 88%);
@@ -50,13 +50,24 @@ html, body{
 	color: #fff;
 }
 .container div.left input{
-	width: 5rem;
+	/*NÃO ESTÁ MAS SENDO USADO
+	DEIXANDO, POR PRECAUÇÃO*/
+	width: 6rem;
 	margin-top:0.5rem;
 	border: 2px solid white;
 	border-radius:2rem;
 	background: var(--base-color);
 	color: #fff;
+	font-size: 0.7rem;
 	cursor: pointer;
+}
+.container div.left h1.soon{
+	font-size: 1.5rem;
+	color: black;
+}
+.container div.left h1.soon span{
+	font-size: 1.9rem;
+	color: white;
 }
 
 .container div.right h2{
@@ -70,11 +81,14 @@ html, body{
 }
 .container div.right label span{
 	position: absolute;
-	top: 1rem;
+	top: 1.2rem;
 	bottom: 0;
 	right: 0;
-	left: 0px;
+	left: 0.2rem;
+	color: var(--base-color);
+	font-size: 1rem;
 }
+
 .container div.right input{
 	height: 1.5rem;
 	padding-left: 1.5rem;
@@ -83,7 +97,7 @@ html, body{
 	margin-top: 1rem;
 }
 .container div.right input::placeholder{
-	text-align: center;
+	text-align: left;
 	
 }
 .container div.right input.btn-login{

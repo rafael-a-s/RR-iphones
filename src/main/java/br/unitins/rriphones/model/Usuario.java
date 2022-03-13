@@ -1,15 +1,22 @@
 package br.unitins.rriphones.model;
 
+import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+@Entity
+public class Usuario extends DefaultEntity implements Serializable {
 
-
-public class Usuario {
-
-	private Integer id;
+	private static final long serialVersionUID = 264552829892031483L;
+	@Column(length = 100)
 	private String nome;
+	@Column(length = 11)
 	private String cpf;
+	@Column(length = 3)
 	private Integer idade;
+	@Column(length = 24)
 	private String senha;
+	@Column(length = 30)
 	private String apelido;
 	
 //	@Column
@@ -25,12 +32,7 @@ public class Usuario {
 	}
 	
 	//Metodos get e set
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
+	
 	public String getNome() {
 		return nome;
 	}

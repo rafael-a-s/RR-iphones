@@ -22,5 +22,14 @@ public class UsuarioDAO {
 		return usu;
 		
 	}
+	public void  delete(Usuario usu) {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("rriphones");
+		EntityManager em = emf.createEntityManager();
+		
+		em.getTransaction().begin();
+		em.remove(em.getReference(Usuario.class, usu.getId()));
+		em.getTransaction().commit();
+		em.close();
+	}
 
 }

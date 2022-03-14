@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+
+	<title>Página inicial</title>
+	<link href="resources/css/index.css" rel="stylesheet" type="text/css" />
+	<link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+		rel="stylesheet" />
+
+</h:head>
+<h:body>
+	<header>
+		<nav class="nav-bar">
+			<h1>
+				RR<span>Iphones</span>
+			</h1>
+			<h:outputLabel class="search">
+				<h:inputText pt:placeholder="Pesquise" />
+				<span class="material-icons"> search </span>
+
+			</h:outputLabel>
+			<h:outputLabel value="Óla faça login" />
+			<h:outputLabel value="Carrinho" />
+
+		</nav>
+
+	</header>
+	<aside>
+		<p>aqui vai ficar os filtros</p>
+	</aside>
+
+	<div id="container">
+		<p>produtos</p>
+	</div>
+
+	<footer>Footer</footer>
+
+
+
+</h:body>
+</html>

@@ -115,4 +115,16 @@ html, body{
 	text-decoration: none;
 	margin-top: 1rem;
 }
+.container div.right input.signWhiteGoogle{
+	
+	width: 6rem;
+	margin-top:1rem;
+	border: 2px solid white;
+	border-radius:2rem;
+	background: red;
+	color: #fff;
+	padding: 0;
+	font-size: 0.6rem;
+	cursor: pointer;
+}
 

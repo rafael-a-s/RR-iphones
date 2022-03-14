@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+	<title>Login</title>
+	<link href="resources/css/login.css" rel="stylesheet" type="text/css" />
+	<link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+		rel="stylesheet" />
+</h:head>
+<ui:composition template="/login.xhtml">
+	<ui:define name="signInOrSignUp">
+		<div class="right">
+
+			<h2>Nova senha</h2>
+
+			<h:form>
+				<h:outputLabel>
+					<span class="material-icons"> lock </span>
+					<h:inputSecret pt:placeholder="Senha" />
+				</h:outputLabel>
+
+				<h:outputLabel>
+					<span class="material-icons"> lock </span>
+					<h:inputSecret pt:placeholder="Repita sua senha" />
+				</h:outputLabel>
+
+
+				<h:commandButton value="Enviar" class="btn-login" />
+
+
+			</h:form>
+
+		</div>
+	</ui:define>
+</ui:composition>
+
+</html>

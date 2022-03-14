@@ -6,10 +6,15 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
+	<meta name="google-signin-client_id"
+		content="169506297000-ur7knin2lb4h3fpvultobqutmtdlsg4j.apps.googleusercontent.com" />
 	<title>Login</title>
 	<link href="resources/css/login.css" rel="stylesheet" type="text/css" />
 	<link href="https://fonts.googleapis.com/css2?family=Material+Icons"
 		rel="stylesheet" />
+	<script
+		src="https://apis.google.com/js/platform.js?onload=renderButton" >async
+		defer</script>
 </h:head>
 <h:body>
 
@@ -19,7 +24,9 @@
 			<h1>Seja bem vindo !</h1>
 			<p>Compre seu iphone com qualidade e preços surreais!</p>
 			<p>Venha conhecer nosso produtos. Faça seu login ou cadastre-se.</p>
-			<h1 class="soon"><span>RR</span>Iphones.</h1>
+			<h1 class="soon">
+				<span>RR</span>Iphones.
+			</h1>
 		</div>
 
 		<div class="right">
@@ -34,13 +41,15 @@
 
 					<h:outputLabel>
 						<span class="material-icons"> lock </span>
-						<h:inputSecret pt:placeholder="Password" />
+						<h:inputSecret pt:placeholder="Senha" />
 					</h:outputLabel>
 
 
 
 
 					<h:commandButton class="btn-login" value="ENTRAR" />
+					
+
 
 					<h:commandLink>Esqueceu a senha ?</h:commandLink>
 					<h:commandLink action="initialregister.xhtml?faces-redirect=true">ou cadastre-se!</h:commandLink>
@@ -50,6 +59,10 @@
 		</div>
 
 	</div>
+	
+	
+
+
 
 </h:body>
 </html>

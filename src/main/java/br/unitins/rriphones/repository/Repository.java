@@ -90,28 +90,11 @@ public class Repository<T extends DefaultEntity> {
 		}
 		
 	}
-	public ArrayList<T> selectAll(T entity){
-		EntityManager em = JPAUtil.getEntityManager();
-		ArrayList<T> list = new ArrayList<T>();
-		
-		
-		
-		for(boolean i = false; i != false;) {
-			em.getTransaction().begin();
-			/* entity = em.find(entity, entity.getId()); */
-			em.getTransaction().commit();
-			if(entity == null)
-				i = false;
-			else
-				list.add(entity);
-		}
-		
-		
-		
-		return list;
-			
 
-	}
+		
+		
+		
+	
 
 	protected EntityManager getEntityManager() {
 		return entityManager;

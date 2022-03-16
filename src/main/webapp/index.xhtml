@@ -21,11 +21,19 @@
 			</h1>
 			<h:outputLabel class="search">
 				<h:inputText pt:placeholder="Pesquise" />
-				<span class="material-icons"> search </span>
+				<h:commandLink>
+					<span class="material-icons"> search </span>
+				</h:commandLink>
 
 			</h:outputLabel>
-			<h:outputLabel value="Óla faça login" />
-			<h:outputLabel value="Carrinho" />
+			<h:outputLabel id="user">
+			<span class="material-icons"> person_outline </span>
+				<h:commandLink>Entre ou registre-se</h:commandLink>
+				
+			</h:outputLabel>
+			<h:outputLabel>
+				<span class="material-icons"> shopping_cart </span>
+			</h:outputLabel>
 
 		</nav>
 

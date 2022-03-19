@@ -1,4 +1,4 @@
-package br.unitins.rriphones.repository;
+package br.unitins.rriphones.application;
 
 public class RepositoryException extends Exception {
 

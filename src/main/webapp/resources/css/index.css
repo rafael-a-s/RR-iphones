@@ -17,6 +17,10 @@
   --text-color-light: hsl(0 0% 98%);
   --body-color: hsl(0 0% 98%);
 }
+html, body{
+	height: 100%;
+	position: relative;
+}
 header nav {
 	display: flex;
 	justify-content: center;
@@ -24,14 +28,20 @@ header nav {
 	gap: 4rem;
 	width: 100%;
 	height: 3rem;
-	background:var(--base-color-second);
+	
+	position: fixed;
+	top: 0;
+  	left: 0;
+  	z-index: 100;
+	
+	background:var(--base-color);
 }
 header nav h1 {
 	color: #000;
 	margin-left: 1rem;
 }
 header nav h1 span{
-	color: var(--base-color);
+	color: #fff;
 }
 
 header nav label.search{
@@ -65,4 +75,43 @@ header nav label#user {
 header nav label#user a{
 	font-size: 0.5rem;
 	color: black;
+}
+
+
+div#container{
+	width: 100%;
+}
+
+
+
+footer{
+	position: absolute;
+	bottom: 0;
+	background: var(--base-color);
+	width: 100%;
+	height: 15%;
+	
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap:10rem;
+}
+footer div.footer-left h1{
+	color: #fff;
+	font-size: 1rem;
+}
+footer div.footer-left h1 span{
+	color:black ;
+	font-size: 0.8rem;
+}
+footer div.footer-left p{
+	font-size: 0.8rem;
+}
+footer div.footer-right{
+	display: flex;
+	gap: 1rem;
+}
+footer div.footer-right span a img{
+	width: 1.5rem;
+	
 }

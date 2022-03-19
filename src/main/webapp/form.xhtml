@@ -13,30 +13,39 @@
 			<p:panel header="Cadastre-se" style="width:400px; ">
 				<h:panelGrid columns="2">
 					<p:outputLabel value="Nome " />
-					<p:inputText value="#{formController.usuario.nome}" />
+					<p:inputText value="#{formController.entity.nome}" />
 					<p:outputLabel value="Cpf " />
-					<p:inputText value="#{formController.usuario.cpf}"/>
+					<p:inputText value="#{formController.entity.cpf}"/>
 					
 					<p:outputLabel value="Idade " />
-					<p:inputText value="#{formController.usuario.idade}"/>
+					<p:inputText value="#{formController.entity.idade}"/>
 					
 					<p:outputLabel value="Senha " />
-					<p:inputText value="#{formController.usuario.senha}"/>
+					<p:inputText value="#{formController.entity.senha}"/>
 					
 					<p:outputLabel value="Apelido " />
-					<p:inputText value="#{formController.usuario.apelido}"/>
+					<p:inputText value="#{formController.entity.apelido}"/>
 				
 				</h:panelGrid>
 				<f:facet name="footer">
 					<center>
-						<p:commandButton action="#{formController.salvar}" value="Entrar" style="margin-right:10px;" />
+						<p:commandButton actionListener="#{formController.salvar}" value="Entrar" style="margin-right:10px;" />
 						<p:commandButton value="alterar" />
 						<p:commandButton value="excluir"  action="#{formController.delete}"/>
 						<p:commandButton value="Limpar" />
+						
 					</center>
 				</f:facet>
 			</p:panel>
-			<h:outputLabel value="#{formController.listUsuario}"/>
+		</center>
+		<center>
+		
+			<p:dataTable value="#{formController.listaUsuario}" var="obj">
+				<p:column headerText="Nome">
+					<p:outputLabel value="#{obj.nome}"/>
+				</p:column>
+			
+			</p:dataTable>
 		</center>
 	</h:form>
 </h:body>

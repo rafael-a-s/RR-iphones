@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import javax.persistence.EntityManager;
 
 import br.unitins.rriphones.application.JPAUtil;
+import br.unitins.rriphones.application.RepositoryException;
 import br.unitins.rriphones.model.DefaultEntity;
 
 public class Repository<T extends DefaultEntity> {

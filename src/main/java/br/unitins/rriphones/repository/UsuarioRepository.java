@@ -4,10 +4,13 @@ import java.util.List;
 
 import javax.persistence.Query;
 
+import br.unitins.rriphones.application.RepositoryException;
 import br.unitins.rriphones.model.Usuario;
 
 public class UsuarioRepository extends Repository<Usuario> {
 
+	
+	
 	public List<Usuario> findByNome(String nome) throws RepositoryException {
 		try {
 			StringBuffer jpql = new StringBuffer();

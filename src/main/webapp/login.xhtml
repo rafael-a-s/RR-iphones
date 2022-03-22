@@ -12,9 +12,7 @@
 	<link href="resources/css/login.css" rel="stylesheet" type="text/css" />
 	<link href="https://fonts.googleapis.com/css2?family=Material+Icons"
 		rel="stylesheet" />
-	<script
-		src="https://apis.google.com/js/platform.js?onload=renderButton" >async
-		defer</script>
+	<script src="https://apis.google.com/js/platform.js"></script>
 </h:head>
 <h:body>
 
@@ -32,8 +30,16 @@
 		<div class="right">
 			<ui:insert name="signInOrSignUp">
 				<h2>Login</h2>
+				<div class="btn-google">
+					<h:graphicImage value="./resources/icons/icons8-google-plus.svg" />
+					<h:commandLink action="onSignIn();" value="Sign in White Google" />
 
+					<div class="g-signin2" data-onsuccess="onSignIn">
+
+					</div>
+				</div>
 				<h:form>
+
 					<h:outputLabel>
 						<span class="material-icons"> person_outline </span>
 						<h:inputText pt:placeholder="Email" />
@@ -48,7 +54,7 @@
 
 
 					<h:commandButton class="btn-login" value="ENTRAR" />
-					
+
 
 
 					<h:commandLink>Esqueceu a senha ?</h:commandLink>
@@ -59,10 +65,12 @@
 		</div>
 
 	</div>
-	
-	
 
 
 
+
+	<script type="text/javascript" src="./resources/js/login.js">
+		
+	</script>
 </h:body>
 </html>

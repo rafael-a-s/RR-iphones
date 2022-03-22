@@ -19,9 +19,19 @@
 }
 html, body{
 	height: 100%;
-	position: relative;
+	
 }
-header nav {
+
+#header{
+	position: fixed;
+	top: 0;
+  	left: 0;
+  	z-index: 100;
+	width: 100%;
+}
+
+
+#header nav {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -29,50 +39,50 @@ header nav {
 	width: 100%;
 	height: 3rem;
 	
-	position: fixed;
-	top: 0;
-  	left: 0;
-  	z-index: 100;
 	
 	background:var(--base-color);
 }
-header nav h1 {
+#header.scroll nav, #header.scroll nav h1 span{
+  background: #fff; 	
+  color: var(--base-color);
+}
+#header nav h1 {
 	color: #000;
 	margin-left: 1rem;
 }
-header nav h1 span{
+#header nav h1 span{
 	color: #fff;
 }
 
-header nav label.search{
+#header nav label.search{
 	
 	position: relative;
 	
 }
-header nav label.search a:link{
+#header nav label.search a:link{
 	color: black;
 }
 
-header nav label.search a span{
+#header nav label.search a span{
 	position: absolute;
 	right: 0.1rem;
 	color: black;
 }
-header nav label.search input{
+#header nav label.search input{
 	border: 0.05rem solid black;
 	border-radius: 0.2rem;
 	padding-right: 2rem;
 	height: 1.5rem;
 } 
-header nav label {
+#header nav label {
 	margin-right: 0.5rem;
 }
-header nav label#user {
+#header nav label#user {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
-header nav label#user a{
+#header nav label#user a{
 	font-size: 0.5rem;
 	color: black;
 }
@@ -80,16 +90,17 @@ header nav label#user a{
 
 div#container{
 	width: 100%;
+	margin-top: 3rem;
 }
 
 
 
 footer{
-	position: absolute;
+	position: fixed;
 	bottom: 0;
 	background: var(--base-color);
 	width: 100%;
-	height: 15%;
+	height: 12%;
 	
 	display: flex;
 	align-items: center;

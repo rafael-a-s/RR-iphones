@@ -1,0 +1,50 @@
+ .container-card{
+	width: 10rem;
+	height: 15rem;
+	
+	margin-left: 5rem;
+	
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	
+	position: relative;
+}
+.container-card img{
+	width: 7rem;
+	height: 6rem;
+}
+.container-card .details p{
+	text-align: center;
+	font-size: .6rem;
+}
+.container-card .prices label{
+	font-size: .7rem;
+}
+.container-card .prices p{
+	font-size: .7rem;
+}
+.container-card .prices p span{
+	font-size: 1rem;
+	color: red;
+}
+
+.container-card .button-car{
+	background: var(--base-color);
+	width: 2.3rem;
+	height: 1.7rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius:.5rem;
+	margin-top:.5rem;
+}
+.container-card .button-car a{
+	color: white;
+	text-decoration: none;
+	
+}
+.container-card .button-car a span{
+	font-size: 1rem; 
+}

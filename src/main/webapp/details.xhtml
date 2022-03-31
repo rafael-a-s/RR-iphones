@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+	<title>Login</title>
+
+
+	<link href="resources/css/details.css" rel="stylesheet" type="text/css" />
+	<link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+		rel="stylesheet" />
+</h:head>
+<ui:composition template="/index.xhtml">
+	<ui:define name="index-template">
+		<div class="container">
+			<div class="details-left">
+			<div class="zoom">
+					<h:graphicImage
+						url="https://imgs.pontofrio.com.br/55014764/1xg.jpg?imwidth=292" />
+						</div>
+			</div>
+			<div class="details-right">
+				<section id="info">
+					<h:outputLabel
+						value="iPhone 11 Apple 64GB Preto, Tela de 6,1”, Câmera Dupla de 12MP, iOS" />
+						<p>Vendido e entregue por rriphones</p>
+				</section>
+				<section id="price">
+					<p>
+						de <s> R$ 4.599,00</s>
+					</p>
+					<span>por R$ 3.799,05</span>
+					<div id="economy">ECONOMIA DE R$ <h:outputLabel value="799,95"/></div>
+					
+				</section>
+				<section id="btn-purchase">
+
+					<h:commandLink value="Comprar" />
+
+				</section>
+			</div>
+			<div class="bottom-center">
+				<section>
+					<h:form id="form">
+						<p:growl id="msgs" showDetail="true"
+							skipDetailIfEqualsSummary="true" />
+
+						<div class="card">
+
+							<p:accordionPanel widgetVar="basic">
+								<p:tab title="Descrição do produto">
+									<section id="description">
+										<h1>Encontre seu iPhone aqui!</h1>
+										<h2>Tudo.Na medida certa.</h2>
+										<p>Novo sitema de câmera dupla. bateria dura o dia todo.</p>
+										<p>O vidro mais resistente em um smartphone. E o chip mais
+											rápido da Apple.</p>
+										<div>
+											<p:graphicImage value="./resources/image/ip-espiral.png" />
+											<p:graphicImage value="./resources/image/foto-ip8.jpeg" />
+										</div>
+										<h3>Faça fotos incríveis</h3>
+										<p:graphicImage
+											value="./resources/image/fotoiphone-exemplo.jpeg" />
+										<h4>Aproveite !</h4>
+									</section>
+								</p:tab>
+
+							</p:accordionPanel>
+						</div>
+					</h:form>
+
+
+				</section>
+
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
+
+</html>

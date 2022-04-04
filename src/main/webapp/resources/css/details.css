@@ -103,3 +103,11 @@
 	justify-content: center;
 	gap: .5rem;
 }
+#description img{
+	max-width: 70%;
+	max-height: 70%;
+}
+#description #images-description img{
+	max-width: 10rem;
+	max-height: 10rem;
+}

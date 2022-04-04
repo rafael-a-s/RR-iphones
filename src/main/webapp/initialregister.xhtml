@@ -17,40 +17,45 @@
 
 			<h2>Cadastro</h2>
 
-			<h:form>
+			<h:form id="form-register">
+			<p:growl id="growl" showDetail="true" />
 				<h:outputLabel>
 					<span class="material-icons"> person_outline </span>
 					<h:inputText pt:placeholder="Nome"
 					required="true"
-					requiredMessage="O nome deve ser informado." />
+					requiredMessage="O nome deve ser informado."
+					value="#{initialregisterController.entity.nome}" />
 				</h:outputLabel>
 				<h:outputLabel>
 					<span class="material-icons"> mail_outline </span>
 					<h:inputText pt:placeholder="Email"
 					type="Email"
-					validatorMessage="O email deve seguir o padrão : usuario@usu.com" >
+					validatorMessage="O email deve seguir o padrão : usuario@usu.com" 
+					value="#{initialregisterController.entity.email}">
 						<f:validateRegex
 								pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
 					</h:inputText>
 				</h:outputLabel>
 				<h:outputLabel>
 					<span class="material-icons"> lock </span>
-					<h:inputSecret  pt:placeholder="Senha" />
+					<h:inputSecret  pt:placeholder="Senha" 
+					value="#{initialregisterController.entity.senha}" />
 				</h:outputLabel>
 
 				<h:outputLabel>
 					<span class="material-icons"> lock </span>
-					<h:inputSecret pt:placeholder="Repita sua senha" />
+					<h:inputSecret pt:placeholder="Repita sua senha" 
+					value="#{initialregisterController.comparePassword}"/>
 				</h:outputLabel>
 
 
 
 
-				<h:commandButton class="btn-login" value="CADASTRAR" />
-
+				<h:commandButton class="btn-login" value="CADASTRAR" action="#{initialregisterController.validationPassword}" />
 				
 
 			</h:form>
+			<h:form><h:commandLink action="login.xhtml?faces-redirect=true">ou cadastre-se!</h:commandLink></h:form>
 
 		</div>
 	</ui:define>

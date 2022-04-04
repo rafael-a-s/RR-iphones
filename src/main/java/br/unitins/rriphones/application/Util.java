@@ -8,14 +8,12 @@ import javax.faces.context.FacesContext;
 
 import org.apache.commons.codec.digest.DigestUtils;
 
+import br.unitins.rriphones.model.Usuario;
+
 
 public class Util {
 	
-	public static void main(String[] args) {
-		System.out.println(hash("janio"));
-		System.out.println(hash("janio"));
-		System.out.println(hash("Janio").length());
-	}
+	
 	
 	public static void redirect(String page) {
 		try {
@@ -26,9 +24,9 @@ public class Util {
 		}
 	}
 	
-//	public static String hash(Usuario usuario) {
-//		return hash(usuario.getCpf()+usuario.getSenha());
-//	}
+	public static String hash(Usuario usuario) {
+		return hash(usuario.getEmail()+usuario.getSenha());
+	}
 	
 	private static String hash(String valor) {
 		return DigestUtils.sha256Hex(valor);

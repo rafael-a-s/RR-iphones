@@ -10,13 +10,15 @@ public abstract class Controller<T extends DefaultEntity> {
 	private Repository<T> repo;
 	protected T entity;
 	public Controller(Repository<T > repo) {
+		
 		super();
+		this.repo = repo;
 	}
-
+	
 	public void salvar() {
 		try {
-			repo.save(getEntity());
-			Util.addInfoMessage("Inclusão realizada com sucesso !");
+			getRepo().save(getEntity());
+			
 			limpar();
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -52,9 +54,7 @@ public abstract class Controller<T extends DefaultEntity> {
 		return repo;
 	}
 
-	public void setRepo(Repository<T> repo) {
-		this.repo = repo;
-	}
+
 
 	public abstract T getEntity();
 

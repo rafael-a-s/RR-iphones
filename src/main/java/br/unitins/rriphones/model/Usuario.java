@@ -1,6 +1,7 @@
 package br.unitins.rriphones.model;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,21 +11,15 @@ public class Usuario extends DefaultEntity implements Serializable {
 	private static final long serialVersionUID = 264552829892031483L;
 	@Column(length = 100)
 	private String nome;
+	@Column(length = 60)
+	private String email;
+	@Column(length = 65)
+	private String senha;
 	@Column(length = 11)
 	private String cpf;
-	@Column(length = 3)
-	private Integer idade;
-	@Column(length = 24)
-	private String senha;
-	@Column(length = 30)
-	private String apelido;
+	@Column(nullable = true)
+	private Date dataNascimento;
 	
-//	@Column
-//	private Date dataNascimento;
-	
-//	private Endereco endereco;
-//	private Genero genero;
-//	private Telefone telefone;
 	
 	//construtor  de usuario
 	public Usuario() {
@@ -39,25 +34,13 @@ public class Usuario extends DefaultEntity implements Serializable {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getCpf() {
-		return cpf;
-	}
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-//	public Date getDataNascimento() {
-//		return dataNascimento;
-//	}
-//	public void setDataNascimento(Date dataNascimento) {
-//		this.dataNascimento = dataNascimento;
-//	}
-
-	public Integer getIdade() {
-		return idade;
+	
+	public String getEmail() {
+		return email;
 	}
 
-	public void setIdade(Integer idade) {
-		this.idade = idade;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getSenha() {
@@ -68,40 +51,21 @@ public class Usuario extends DefaultEntity implements Serializable {
 		this.senha = senha;
 	}
 
-	public String getApelido() {
-		return apelido;
+	public String getCpf() {
+		return cpf;
 	}
 
-	public void setApelido(String apelido) {
-		this.apelido = apelido;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
-//	public Endereco getEndereco() {
-//		return endereco;
-//	}
-//
-//	public void setEndereco(Endereco endereco) {
-//		this.endereco = endereco;
-//	}
-//
-//	public Genero getGenero() {
-//		return genero;
-//	}
-//
-//	public void setGenero(Genero genero) {
-//		this.genero = genero;
-//	}
-//
-//	public Telefone getTelefone() {
-//		return telefone;
-//	}
-//
-//	public void setTelefone(Telefone telefone) {
-//		this.telefone = telefone;
-//	}
-	
-	
-	
-	
+	public Date getDataNascimento() {
+		return dataNascimento;
+	}
+
+	public void setDataNascimento(Date dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
+
 
 }

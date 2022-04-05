@@ -91,10 +91,7 @@ public class Repository<T extends DefaultEntity> {
 		}
 		
 	}
-
-		
-		
-		
+	
 	
 
 	protected EntityManager getEntityManager() {

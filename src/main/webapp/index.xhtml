@@ -11,8 +11,9 @@
 	<link href="resources/css/index.css" rel="stylesheet" type="text/css" />
 	<link href="https://fonts.googleapis.com/css2?family=Material+Icons"
 		rel="stylesheet" />
-		<link href="resources/css/products.css" rel="stylesheet" type="text/css" />
-		<link href="resources/css/details.css" rel="stylesheet" type="text/css" />
+	<link href="resources/css/products.css" rel="stylesheet"
+		type="text/css" />
+	<link href="resources/css/details.css" rel="stylesheet" type="text/css" />
 
 </h:head>
 <h:body>
@@ -28,10 +29,15 @@
 				</h:commandLink>
 
 			</h:outputLabel>
-			<h:outputLabel id="user">
+			<h:outputLabel id="user" rendered="#{indexController.entity==null}">
 				<span class="material-icons"> person_outline </span>
 				<h:commandLink>Entre ou registre-se</h:commandLink>
 
+			</h:outputLabel>
+			<h:outputLabel rendered="#{indexController.entity != null}">
+				<span class="material-icons"> person_outline </span>
+
+				<p>Olá, #{indexController.entity.nome}</p>
 			</h:outputLabel>
 			<h:outputLabel>
 				<span class="material-icons"> shopping_cart </span>
@@ -44,7 +50,7 @@
 
 	<div id="container">
 		<ui:insert name="index-template">
-			
+
 		</ui:insert>
 	</div>
 
@@ -57,18 +63,13 @@
 			<p>Todos os direitos reservados</p>
 		</div>
 		<div class="footer-right">
-			<span>
-				<h:commandLink>
+			<span> <h:commandLink>
 					<h:graphicImage value="./resources/icons/icons8-whatsapp.svg" />
 				</h:commandLink>
-			</span>
-			<span>
-				<h:commandLink>
+			</span> <span> <h:commandLink>
 					<h:graphicImage value="./resources/icons/icons8-instagram.svg" />
 				</h:commandLink>
-			</span>
-			<span>
-				<h:commandLink>
+			</span> <span> <h:commandLink>
 					<h:graphicImage value="./resources/icons/icons8-facebook.svg" />
 				</h:commandLink>
 			</span>
@@ -76,7 +77,7 @@
 
 	</footer>
 
-<script type="text/javascript" src="./resources/js/index.js" />
+	<script type="text/javascript" src="./resources/js/index.js" />
 
 
 

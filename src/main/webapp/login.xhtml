@@ -42,18 +42,18 @@
 					<p:growl id="growl" showDetail="true" />
 					<h:outputLabel>
 						<span class="material-icons"> person_outline </span>
-						<h:inputText pt:placeholder="Email" />
+						<h:inputText pt:placeholder="Email" value="#{loginController.email}" />
 					</h:outputLabel>
 
 					<h:outputLabel>
 						<span class="material-icons"> lock </span>
-						<h:inputSecret pt:placeholder="Senha" />
+						<h:inputSecret pt:placeholder="Senha" value="#{loginController.senha}" />
 					</h:outputLabel>
 
 
 
 
-					<h:commandButton class="btn-login" value="ENTRAR" />
+					<h:commandButton action="#{loginController.validationLogin}" class="btn-login" value="ENTRAR" />
 
 
 

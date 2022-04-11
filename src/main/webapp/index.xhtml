@@ -14,6 +14,8 @@
 	<link href="resources/css/products.css" rel="stylesheet"
 		type="text/css" />
 	<link href="resources/css/details.css" rel="stylesheet" type="text/css" />
+	<link href="resources/css/purchase.css" rel="stylesheet" type="text/css" />
+	<link href="resources/css/profile.css" rel="stylesheet" type="text/css" />
 
 </h:head>
 <h:body>
@@ -29,18 +31,21 @@
 				</h:commandLink>
 
 			</h:outputLabel>
-			<h:outputLabel id="user" rendered="#{indexController.entity==null}">
+			<h:outputLabel class="user" rendered="#{indexController.entity != null}">
 				<span class="material-icons"> person_outline </span>
 				<h:commandLink>Entre ou registre-se</h:commandLink>
 
-			</h:outputLabel>
-			<h:outputLabel rendered="#{indexController.entity != null}">
+			</h:outputLabel >
+			<h:outputLabel class="user" rendered="#{indexController.entity == null}">
 				<span class="material-icons"> person_outline </span>
 
 				<p>Olá, #{indexController.entity.nome}</p>
 			</h:outputLabel>
-			<h:outputLabel>
+			<h:outputLabel id="car">
+				<h:commandLink>
 				<span class="material-icons"> shopping_cart </span>
+				</h:commandLink>
+				<span id="cont-itens-car">0</span>
 			</h:outputLabel>
 
 		</nav>

@@ -44,10 +44,12 @@ html, body{
 .container div.left h1{
 	color: #fff;
 	margin-bottom: 1rem;
+	font-size: 3rem;
 }
 .container div.left p{
 	margin-bottom: 0.5rem;
 	color: #fff;
+	font-size: 1.5rem;
 }
 .container div.left input{
 	/*NÃO ESTÁ MAS SENDO USADO
@@ -62,17 +64,18 @@ html, body{
 	cursor: pointer;
 }
 .container div.left h1.soon{
-	font-size: 1.5rem;
+	font-size: 2rem;
 	color: black;
 }
 .container div.left h1.soon span{
-	font-size: 1.9rem;
+	font-size: 3rem;
 	color: white;
 }
 
 .container div.right h2{
 	color: var(--base-color);
 	margin-bottom: 1rem;
+	font-size: 3rem;
 }
 .container div.right form{
 	display: contents;
@@ -87,29 +90,31 @@ html, body{
 	right: 0;
 	left: 0.2rem;
 	color: var(--base-color);
-	font-size: 1rem;
+	font-size: 2rem;
 }
 
 .container div.right input{
-	height: 1.5rem;
-	padding-left: 1.5rem;
+	width: 17rem;
+	height: 2.5rem;
+	padding-left: 2.5rem;
 	background:#DCDCDC;
 	border: none;
+	border-radius: .5rem;
 	margin-top: 1rem;
 }
 .container div.right input::placeholder{
 	text-align: left;
-	
+	font-size: 1rem;
 }
 .container div.right input.btn-login{
-	width: 6rem;
+	width: 7rem;
 	margin-top:1rem;
 	border: 2px solid white;
 	border-radius:2rem;
 	background: var(--base-color);
 	color: #fff;
 	padding: 0;
-	font-size: 0.6rem;
+	font-size: 0.9rem;
 	cursor: pointer;
 }
 .container div.right a{
@@ -117,8 +122,8 @@ html, body{
 	margin-top: 1rem;
 }
 .container div.right div.btn-google{
-	width: 10rem;
-	height: 2rem;
+	width: 17rem;
+	height: 3rem;
 	display: flex;
 	align-content: center;
 	align-items: center;
@@ -130,7 +135,7 @@ html, body{
 	
 }
 .container div.right div.btn-google img{
-	width: 1.5rem;
+	width: 3rem;
 	position: absolute;
 	left: 0rem;
 	
@@ -138,8 +143,9 @@ html, body{
 .container div.right div.btn-google a{
 	margin-top: 2rem;
 	color: #fff;
-	font-size: 0.7rem;
+	font-size: 1rem;
 	cursor: pointer;
+	font-weight: bold;
 }
 .g-signin2{
 	position: inherit;

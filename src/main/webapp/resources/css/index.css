@@ -35,9 +35,9 @@ html, body{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	gap: 4rem;
+	gap: 11rem;
 	width: 100%;
-	height: 3rem;
+	height: 5rem;
 	
 	
 	background:var(--base-color);
@@ -49,6 +49,7 @@ html, body{
 #header nav h1 {
 	color: #000;
 	margin-left: 1rem;
+	font-size:3rem;
 }
 #header nav h1 span{
 	color: #fff;
@@ -67,29 +68,53 @@ html, body{
 	position: absolute;
 	right: 0.1rem;
 	color: black;
+	top: 0.5rem;
 }
 #header nav label.search input{
-	border: 0.05rem solid black;
-	border-radius: 0.2rem;
+	border: none;
+	border-radius: 1rem;
 	padding-right: 2rem;
-	height: 1.5rem;
+	padding-left: 1rem;
+	height: 2.5rem;
+	width: 22rem;
 } 
+#header nav label.search input::placeholder{
+	margin-left: 2rem;
+	font-size: 1rem;
+}
+#header nav label.search input:focus{
+	box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
 #header nav label {
 	margin-right: 0.5rem;
 }
-#header nav label#user {
+#header nav label.user {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
-#header nav label#user a{
-	font-size: 0.5rem;
+#header nav label.user span{
+	font-size: 2rem;
+}
+#header nav label.user a{
+	font-size: 1rem;
 	color: black;
 }
-
+#header nav label#car span{
+	font-size: 2rem;
+}
+#header nav label#car  a span{
+	text-decoration: none;
+	color: black;
+}
+#header nav label#car span#cont-itens-car{
+	font-size: 1rem;
+}
 
 div#container{
-	min-height: 23.37rem;
+	min-height: 45.370000000000005rem;
 	width: 100%;
 	margin-top: 3rem;
 }
@@ -100,7 +125,7 @@ footer{
 	
 	background: var(--base-color);
 	width: 100%;
-	height: 7rem;
+	height: 10rem;
 	z-index:0;
 	display: flex;
 	align-items: center;
@@ -109,20 +134,20 @@ footer{
 }
 footer div.footer-left h1{
 	color: #fff;
-	font-size: 1rem;
+	font-size: 2rem;
 }
 footer div.footer-left h1 span{
 	color:black ;
-	font-size: 0.8rem;
+	font-size: 1.8rem;
 }
 footer div.footer-left p{
-	font-size: 0.8rem;
+	font-size:1rem;
 }
 footer div.footer-right{
 	display: flex;
 	gap: 1rem;
 }
 footer div.footer-right span a img{
-	width: 1.5rem;
+	width: 2rem;
 	
 }

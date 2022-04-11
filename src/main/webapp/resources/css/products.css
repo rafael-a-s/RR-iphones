@@ -1,6 +1,6 @@
  .container-card{
 	width: 10rem;
-	height: 15rem;
+	height: 24rem;
 	
 	margin-left: 5rem;
 	
@@ -17,7 +17,7 @@
 }
 .container-card .details p{
 	text-align: center;
-	font-size: .6rem;
+	font-size: 1rem;
 }
 .container-card .prices label{
 	font-size: .7rem;
@@ -26,14 +26,14 @@
 	font-size: .7rem;
 }
 .container-card .prices p span{
-	font-size: 1rem;
+	font-size: 2rem;
 	color: red;
 }
 
 .container-card .button-car{
 	background: var(--base-color);
-	width: 2.3rem;
-	height: 1.7rem;
+	width: 4.3rem;
+	height: 2.7rem;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -46,5 +46,5 @@
 	
 }
 .container-card .button-car a span{
-	font-size: 1rem; 
+	font-size: 2rem; 
 }

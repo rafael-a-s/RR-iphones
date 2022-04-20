@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+
+	<title>Página inicial</title>
+	<link href="resources/css/aux.css" rel="stylesheet" type="text/css" />
+	<link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+		rel="stylesheet" />
+	
+
+</h:head>
+<h:body>
+	<div id="container">
+		<div id="header">
+			<h1>RR<span>Imports</span></h1>
+			<h:outputLabel class="search">
+				<h:inputText pt:placeholder="Pesquise" />
+				<h:commandLink>
+					<span class="material-icons"> search </span>
+				</h:commandLink>
+
+			</h:outputLabel>
+		</div>
+	
+		<div class="divider-1"></div>
+		<div id="mainmenu">
+			<h:outputLabel class="user" rendered="#{indexController.entity != null}">
+				<span class="material-icons"> person_outline </span>
+				<h:commandLink>Entre ou registre-se</h:commandLink>
+
+			</h:outputLabel >
+			
+			<h:outputLabel id="car">
+				<h:commandLink>
+				<span class="material-icons"> shopping_cart </span>
+				</h:commandLink>
+				<span id="cont-itens-car">0</span>
+			</h:outputLabel>
+		</div>
+		<div id="contents">content</div>
+		<div id="footer">footer</div>
+	</div>
+</h:body>
+</html>

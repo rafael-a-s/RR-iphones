@@ -1,0 +1,119 @@
+body{
+	margin: 0;
+	padding: 0;
+}
+
+:root {
+  --header-height: 4.5rem;
+
+  /* colors */
+  --hue: 187;
+  /* HSL color mode */
+  --base-color: hsl(var(--hue) 36% 57%);
+  --base-color-second: hsl(var(--hue) 90% 88%);
+  --base-color-alt: hsl(var(--hue) 57% 53%);
+  --title-color: hsl(var(--hue) 41% 10%);
+  --text-color: hsl(0 0% 46%);
+  --text-color-light: hsl(0 0% 98%);
+  --body-color: hsl(0 0% 98%);
+}
+/*========BASE=========*/
+#container{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.divider-1 {
+  height: 1px;
+  background: linear-gradient(
+    270deg,
+    hsla(var(--hue), 36%, 57%, 1),
+    hsla(var(--hue), 65%, 88%, 0.34)
+  );
+}
+/*========HEADER=========*/
+#container #header{
+	width: 100%;
+	height: 5rem;
+	background: var(--base-color);
+	display: flex;
+	align-items: center;
+	
+}
+#container #header h1{
+	color: #000;
+	font-size:3rem;
+	position: absolute;
+	margin-left: 6rem;
+	
+}
+#container #header h1 span{
+	color: #fff;
+}
+#container #header label{
+	margin: 0 auto;
+	position: relative;
+	
+}
+#container #header label input{
+	border: none;
+	border-radius: 1rem;
+	padding-right: 2rem;
+	padding-left: 1rem;
+	height: 2.5rem;
+	width: 22rem;
+}
+#container #header label a{
+	color: black;
+}
+#container #header label a span{
+	position: absolute;
+	right: 0.1rem;
+	color: black;
+	top: 0.5rem;
+}
+/*========MAIN MENU=========*/
+#container #mainmenu{
+	background: var( --base-color);
+	width: 100%;
+	height: 4rem;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+    gap: 9rem;
+}
+#container #mainmenu label.user {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+#container #mainmenu label.user span{
+	font-size: 2rem;
+}
+#container #mainmenu label#car{
+	margin-right: 3rem;
+}
+#container #mainmenu label#car a span{
+	font-size: 2rem;
+}
+#container #mainmenu label#car  a span{
+	text-decoration: none;
+	color: black;
+}
+#container #mainmenu label#car span#cont-itens-car{
+	font-size: 1rem;
+}
+/*========CONTENTS=========*/
+#container #contents{
+	width: 100%;
+	min-height: 100vh;
+	background: blue;
+}
+#container #footer{
+	width: 100%;
+	height: 10rem;
+	background: yellow;
+}

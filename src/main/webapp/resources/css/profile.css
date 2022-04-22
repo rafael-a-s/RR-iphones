@@ -3,9 +3,13 @@
 	height: 100%;
 	width:100%;
 	min-height: 30rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
 }
 #profile-top20{
-	background: yellow;
+	background: #568085;
 	width:100%;
 	height: 10rem;
 }
@@ -13,4 +17,46 @@
 #profile-top80{
 	width: 100%;
 	height: 20rem;
+	
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+#profile-top80 label{
+	background: #e2e6e7;
+	font-size: 1.5rem;
+    height: 2rem;
+    width: 21rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#profile-top80 input {
+	width: 13rem;
+    height: 2.5rem;
+    text-decoration: none;
+    color: white;
+    background: var(--base-color);
+    margin-right: 2rem;
+    font-size: 1rem;
+    border-radius: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#profile-container img {
+	width:10rem;
+	height: 10rem;
+	position: absolute;
+	bottom: 17rem;
+}
+#profile-container #profile-top80 .edit-profile{
+	width: auto;
+    height: 20rem;
+    display: grid;
+    align-items: center;
+    justify-content: center;
 }

@@ -42,12 +42,18 @@
 					<p:growl id="growl" showDetail="true" />
 					<h:outputLabel>
 						<span class="material-icons"> person_outline </span>
-						<h:inputText pt:placeholder="Email" value="#{loginController.email}" />
+						<h:inputText pt:placeholder="Email"
+						type="Email"
+						validatorMessage="O email deve seguir o padrão : usuario@usu.com"  
+						value="#{loginController.usu.email}" >
+							<f:validateRegex
+								pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+						</h:inputText>
 					</h:outputLabel>
 
 					<h:outputLabel>
 						<span class="material-icons"> lock </span>
-						<h:inputSecret pt:placeholder="Senha" value="#{loginController.senha}" />
+						<h:inputSecret pt:placeholder="Senha" value="#{loginController.usu.senha}" required="true" />
 					</h:outputLabel>
 
 
@@ -55,12 +61,12 @@
 
 					<h:commandButton action="#{loginController.validationLogin}" class="btn-login" value="ENTRAR" />
 
-
-
+				</h:form>
+				<h:form>
 					<h:commandLink>Esqueceu a senha ?</h:commandLink>
 					<h:commandLink action="initialregister.xhtml?faces-redirect=true">ou cadastre-se!</h:commandLink>
-
 				</h:form>
+				
 			</ui:insert>
 		</div>
 

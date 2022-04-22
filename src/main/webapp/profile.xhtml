@@ -15,15 +15,39 @@
 </h:head>
 <ui:composition template="/index.xhtml">
 	<ui:define name="index-template">
-	<div id="profile-container">
-		<section id="profile-top20">
-			<h1>teste</h1>
-		</section>
-		<section id="profile-top80">
-			<h1>teste</h1>
-		</section>
-	</div>
-		
+		<div id="profile-container">
+			<section id="profile-top20">
+			<p:growl id="message" showDetail="true"/>
+			</section>
+			<h:graphicImage value="/resources/image/user.png" />
+			<section id="profile-top80">
+				<h:outputLabel value="#{indexController.entity.nome}" />
+				<h:outputLabel value="#{indexController.entity.email}" />
+
+
+				<p:commandButton value="Editar informações" type="button"
+					icon="pi pi-external-link" onclick="PF('dlg2').show()" />
+				<p:dialog header="Alterar" widgetVar="dlg2" minHeight="40"
+					width="600" showEffect="fade" modal="true">
+					
+					<div class="edit-profile">
+						<p:inputText pt:placeholder="Nome" value="#{indexController.entity.nome}"/>
+						<p:inputText pt:placeholder="Email" value="#{indexController.entity.email}"/>
+						
+						
+       					  
+						 <p:commandButton value="Confirm" action="#{indexController.alterarUsuarioLogado}" update="message" styleClass="p-mr-2" icon="pi pi-check">
+           		 			<p:confirm type="popup" header="Confirmation" message="Are you sure you want to proceed?" icon="pi pi-exclamation-triangle"/>
+        				 </p:commandButton>
+        				  <p:confirmPopup global="true">
+				            <p:commandButton value="No" type="button" styleClass="ui-confirm-popup-no ui-button-flat"/>
+				            <p:commandButton value="Yes" type="button" styleClass="ui-confirm-popup-yes" />
+       					  </p:confirmPopup>
+					</div>
+				</p:dialog>
+			</section>
+		</div>
+
 	</ui:define>
 </ui:composition>
 

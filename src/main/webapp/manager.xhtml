@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+
+	<title>Página inicial</title>
+	<link href="resources/css/manager.css" rel="stylesheet" type="text/css" />
+	<link href="resources/css/managerUsuario.css" rel="stylesheet" type="text/css" />
+	<link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+		rel="stylesheet" />
+</h:head>
+<h:body>
+	<div id="container">
+		<nav>
+			<h1>
+				RR<span>Imports</span>
+			</h1>
+			<ul>
+				<li><p:commandLink value="Gerenciar usuarios" /></li>
+				<li><p:commandLink value="Gerenciar aparelhos" /></li>
+			</ul>
+		</nav>
+		<div id="contents">
+			
+				<ui:insert name="manager-template">
+
+				</ui:insert>
+				
+		</div>
+
+	</div>
+
+
+
+</h:body>
+</html>

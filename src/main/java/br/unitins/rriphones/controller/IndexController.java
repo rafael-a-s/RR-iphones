@@ -6,6 +6,7 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
 import br.unitins.rriphones.application.Session;
+import br.unitins.rriphones.application.Util;
 import br.unitins.rriphones.model.Usuario;
 import br.unitins.rriphones.repository.UsuarioRepository;
 @Named
@@ -18,7 +19,11 @@ public class IndexController extends Controller<Usuario> implements Serializable
 		super(new UsuarioRepository());
 		entity = (Usuario) Session.getInstance().get("UsuarioLogado");
 	}
-
+	public void alterarUsuarioLogado() {
+		salvar();
+		Util.redirect("profile.xhtml");
+		
+	}
 	@Override
 	public Usuario getEntity() {
 			if(entity == null)

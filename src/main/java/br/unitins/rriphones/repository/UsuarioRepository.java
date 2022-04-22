@@ -11,7 +11,7 @@ public class UsuarioRepository extends Repository<Usuario> {
 
 	
 	
-	public List<Usuario> findByName(String email) throws RepositoryException {
+	public List<Usuario> findByName(String nome) throws RepositoryException {
 		try {
 			StringBuffer jpql = new StringBuffer();
 			jpql.append("SELECT ");
@@ -19,9 +19,9 @@ public class UsuarioRepository extends Repository<Usuario> {
 			jpql.append("FROM ");
 			jpql.append(" Usuario u ");
 			jpql.append("WHERE ");
-			jpql.append(" u.email LIKE :email ");
+			jpql.append(" u.nome LIKE :nome ");
 			Query query = getEntityManager().createQuery(jpql.toString());
-			query.setParameter("email", "%" + email + "%");
+			query.setParameter("nome", "%" + nome + "%");
 
 			return query.getResultList();
 

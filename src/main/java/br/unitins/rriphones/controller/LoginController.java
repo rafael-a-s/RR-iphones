@@ -19,8 +19,7 @@ public class LoginController extends Controller<Usuario> implements Serializable
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private String email;
-	private String senha;
+	private Usuario usu;
 	
 	public LoginController() throws RepositoryException {
 		super(new UsuarioRepository());
@@ -28,12 +27,14 @@ public class LoginController extends Controller<Usuario> implements Serializable
 	public void validationLogin() throws RepositoryException {
 		
 		UsuarioRepository u = new UsuarioRepository();
-		setEntity( u.findByEmail(getEmail()));
+		setEntity( u.findByEmail(getUsu().getEmail()));
 		
-		if(getEntity() != null & getEntity().getEmail().equals(getEmail()) & getEntity().getSenha().equals(getSenha())) {
+		//variavel que recebe o hash da senha 
+		String senhaAux = Util.hash(getUsu());
+		if(getEntity() != null & getEntity().getEmail().equals(getUsu().getEmail()) & getEntity().getSenha().equals(senhaAux)) {
 			Util.addInfoMessage("Secesso ao efetuar login");
 			Session.getInstance().set("UsuarioLogado", getEntity());
-			Util.redirect("index.xhtml");
+			Util.redirect("products.xhtml");
 		}else {
 			Util.addErrorMessage("Email ou senhas incorretos");
 		}
@@ -45,26 +46,17 @@ public class LoginController extends Controller<Usuario> implements Serializable
 			entity = new Usuario();
 		return entity;
 	}
-
-
-	public String getEmail() {
-		return email;
+	public Usuario getUsu() {
+		if(usu == null)
+			usu = new Usuario();
+		return usu;
+	}
+	public void setUsu(Usuario usu) {
+		this.usu = usu;
 	}
 
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-
-	public String getSenha() {
-		return senha;
-	}
-
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
+	
 	
 
 }

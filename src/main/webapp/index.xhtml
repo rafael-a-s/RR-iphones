@@ -19,6 +19,7 @@
 
 </h:head>
 <h:body>
+	<h:form>
 	<header id="header">
 		<nav class="nav-bar">
 			<h1>
@@ -31,15 +32,16 @@
 				</h:commandLink>
 
 			</h:outputLabel>
-			<h:outputLabel class="user" rendered="#{indexController.entity != null}">
+			<h:outputLabel class="user" rendered="#{indexController.entity.id == null}">
 				<span class="material-icons"> person_outline </span>
 				<h:commandLink>Entre ou registre-se</h:commandLink>
 
 			</h:outputLabel >
-			<h:outputLabel class="user" rendered="#{indexController.entity == null}">
+			<h:outputLabel class="user" rendered="#{indexController.entity.id != null}">
+			<h:commandLink action="profile.xhtml?faces-redirect=true">
 				<span class="material-icons"> person_outline </span>
-
-				<p>Olá, #{indexController.entity.nome}</p>
+			</h:commandLink>
+				<p>Olá, #{indexController.entity.nome} Bem Vindo !</p>
 			</h:outputLabel>
 			<h:outputLabel id="car">
 				<h:commandLink>
@@ -85,6 +87,6 @@
 	<script type="text/javascript" src="./resources/js/index.js" />
 
 
-
+</h:form>
 </h:body>
 </html>

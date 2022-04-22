@@ -1,0 +1,6 @@
+#teste .inputs {
+	display: grid;
+    width: auto;
+    height: auto;
+    gap: 2rem
+}

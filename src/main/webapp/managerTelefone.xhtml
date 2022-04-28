@@ -20,10 +20,10 @@
 		<div id="usuario-content">
 			<h:form id="formInputs">
 				<section class="pesquisa">
-					<p:commandButton value="Abrir listagem de usuarios"
-						actionListener="#{managerUsuarioController.abrirUsuarioListing}">
+					<p:commandButton value="Abrir listagem de Telefones"
+						actionListener="#{managerTelefoneController.abrirTelefoneListing}">
 						<p:ajax event="dialogReturn"
-							listener="#{managerUsuarioController.obterUsuariListing}"
+							listener="#{managerTelefoneController.obterTelefoneListing}"
 							update="teste" />
 					</p:commandButton>
 
@@ -34,38 +34,32 @@
 				<section class="inputs">
 
 					<span class="ui-float-label"> <p:inputText required="true"
-							requiredMessage="O nome deve ser informado."
-							value="#{managerUsuarioController.entity.nome}" /> <p:outputLabel
-							for="@previous" value="Nome do usuario" />
+							requiredMessage="O DDD deve ser informado."
+							value="#{managerTelefoneController.entity.codigoArea}" /> <p:outputLabel
+							for="@previous" value="DDD" />
 					</span> <span class="ui-float-label"> <p:inputText required="true"
-							requiredMessage="O email deve ser informado."
-							value="#{managerUsuarioController.entity.email}" /> <p:outputLabel
-							for="@previous" value="Email do usuario" />
+							requiredMessage="O numero deve ser informado."
+							value="#{managerTelefoneController.entity.numero}" /> <p:outputLabel
+							for="@previous" value="Numero" />
 
-					</span> <span class="ui-float-label"> <p:inputText
-							disabled="#{managerUsuarioController.entity.id != null}"
-							required="true" requiredMessage="A senha deve ser informada"
-							value="#{managerUsuarioController.entity.senha}" /> <p:outputLabel
-							for="@previous" value="Senha do usuario" />
-
-					</span>
+					</span> 
 					<div>
 						<p:commandButton
-							disabled="#{managerUsuarioController.entity.id != null}"
+							disabled="#{managerTelefoneController.entity.id != null}"
 							process="@form:teste" update="@form:teste"
-							action="#{managerUsuarioController.salvarUsuario}" value="Salvar" />
+							action="#{managerTelefoneController.salvar}" value="Salvar" />
 						<p:commandButton
-							disabled="#{managerUsuarioController.entity.id == null}"
+							disabled="#{managerTelefoneController.entity.id == null}"
 							process="@form:teste" update="@form:teste"
-							action="#{managerUsuarioController.alterarUsuario}"
+							action="#{managerTelefoneController.alterar}"
 							value="alterar" />
 						<p:commandButton process="@form:teste" update="@form:teste"
-							action="#{managerUsuarioController.limpar}" value="Limpar" />
+							action="#{managerTelefoneController.limpar}" value="Limpar" />
 
 						<p:commandButton
-							disabled="#{managerUsuarioController.entity.id == null}"
+							disabled="#{managerTelefoneController.entity.id == null}"
 							process="@this" update="@form:teste"
-							action="#{managerUsuarioController.excluir}" value="Excluir" />
+							action="#{managerTelefoneController.excluir}" value="Excluir" />
 					</div>
 				</section>
 			</h:form>

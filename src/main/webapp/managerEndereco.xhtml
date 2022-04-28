@@ -20,10 +20,10 @@
 		<div id="usuario-content">
 			<h:form id="formInputs">
 				<section class="pesquisa">
-					<p:commandButton value="Abrir listagem de usuarios"
-						actionListener="#{managerUsuarioController.abrirUsuarioListing}">
+					<p:commandButton value="Abrir listagem de Endereços"
+						actionListener="#{managerEnderecoController.abrirEnderecoListing}">
 						<p:ajax event="dialogReturn"
-							listener="#{managerUsuarioController.obterUsuariListing}"
+							listener="#{managerEnderecoController.obterEnderecoListing}"
 							update="teste" />
 					</p:commandButton>
 
@@ -34,38 +34,43 @@
 				<section class="inputs">
 
 					<span class="ui-float-label"> <p:inputText required="true"
-							requiredMessage="O nome deve ser informado."
-							value="#{managerUsuarioController.entity.nome}" /> <p:outputLabel
-							for="@previous" value="Nome do usuario" />
+							requiredMessage="O cep deve ser informado."
+							value="#{managerEnderecoController.entity.cep}" /> <p:outputLabel
+							for="@previous" value="Cep" />
 					</span> <span class="ui-float-label"> <p:inputText required="true"
-							requiredMessage="O email deve ser informado."
-							value="#{managerUsuarioController.entity.email}" /> <p:outputLabel
-							for="@previous" value="Email do usuario" />
+							requiredMessage="O endereco deve ser informado."
+							value="#{managerEnderecoController.entity.endereco}" /> <p:outputLabel
+							for="@previous" value="Endereco" />
 
 					</span> <span class="ui-float-label"> <p:inputText
-							disabled="#{managerUsuarioController.entity.id != null}"
-							required="true" requiredMessage="A senha deve ser informada"
-							value="#{managerUsuarioController.entity.senha}" /> <p:outputLabel
-							for="@previous" value="Senha do usuario" />
+							required="true" requiredMessage="o numero deve ser informado"
+							value="#{managerEnderecoController.entity.numero}" /> <p:outputLabel
+							for="@previous" value="Numero" />
+
+					</span>
+					<span class="ui-float-label"> <p:inputText
+							required="true" requiredMessage="o complemento deve ser informado"
+							value="#{managerEnderecoController.entity.complemento}" /> <p:outputLabel
+							for="@previous" value="Complemento" />
 
 					</span>
 					<div>
 						<p:commandButton
-							disabled="#{managerUsuarioController.entity.id != null}"
+							disabled="#{managerEnderecoController.entity.id != null}"
 							process="@form:teste" update="@form:teste"
-							action="#{managerUsuarioController.salvarUsuario}" value="Salvar" />
+							action="#{managerEnderecoController.salvar}" value="Salvar" />
 						<p:commandButton
-							disabled="#{managerUsuarioController.entity.id == null}"
+							disabled="#{managerEnderecoController.entity.id == null}"
 							process="@form:teste" update="@form:teste"
-							action="#{managerUsuarioController.alterarUsuario}"
+							action="#{managerEnderecoController.alterar}"
 							value="alterar" />
 						<p:commandButton process="@form:teste" update="@form:teste"
-							action="#{managerUsuarioController.limpar}" value="Limpar" />
+							action="#{managerEnderecoController.limpar}" value="Limpar" />
 
 						<p:commandButton
-							disabled="#{managerUsuarioController.entity.id == null}"
+							disabled="#{managerEnderecoController.entity.id == null}"
 							process="@this" update="@form:teste"
-							action="#{managerUsuarioController.excluir}" value="Excluir" />
+							action="#{managerEnderecoController.excluir}" value="Excluir" />
 					</div>
 				</section>
 			</h:form>

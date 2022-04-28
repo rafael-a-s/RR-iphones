@@ -2,5 +2,13 @@
 	display: grid;
     width: auto;
     height: auto;
-    gap: 2rem
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+#formInputs{
+	margin-bottom: 1rem;
+}
+#teste .inputs div{
+	display: flex;
+	gap: 1rem;
 }

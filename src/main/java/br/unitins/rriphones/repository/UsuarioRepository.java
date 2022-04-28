@@ -38,13 +38,15 @@ public class UsuarioRepository extends Repository<Usuario> {
 			Query q = getEntityManager().createQuery(jpql.toString());
 			q.setParameter("email", email);
 			
+			
+			
 			return (Usuario)q.getSingleResult();
 		} catch (Exception e) {
-			// TODO: handle exception
+			return null;
 		}
 		
 		
-		return null;
+		
 	}
 
 }

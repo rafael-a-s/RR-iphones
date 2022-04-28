@@ -3,7 +3,8 @@
 	<persistence-unit name="rriphones">
 	<class>br.unitins.rriphones.model.Usuario</class>
 	<class>br.unitins.rriphones.model.DefaultEntity</class>
-		
+	<class>br.unitins.rriphones.model.Endereco</class>	
+	<class>br.unitins.rriphones.model.Telefone</class>	
 
 		<properties>
 			<!-- DB Driver -->

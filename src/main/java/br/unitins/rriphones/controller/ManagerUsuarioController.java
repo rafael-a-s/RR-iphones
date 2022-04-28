@@ -28,27 +28,30 @@ public class ManagerUsuarioController extends Controller<Usuario> implements Ser
 		super(new UsuarioRepository());
 
 	}
-	public void incluir() throws RepositoryException {
-		
-		
-		salvar();
+	public void salvarUsuario() throws RepositoryException {
+		UsuarioRepository u = new UsuarioRepository();
+		if(u.findByEmail(getEntity().getEmail()) == null) { //se o email digitado não existir ele salva o obj
+			salvar();
+		}
 	}
-	public void abrirUsuarioListing() {
+	public void alterarUsuario() throws RepositoryException {
+		UsuarioRepository u = new UsuarioRepository();
+		Usuario usuAux = u.findByEmail(getEntity().getEmail());
+		if(usuAux == null) {// Se o email nao exite 
+			salvar();
+		}else if( usuAux.getId().equals(getEntity().getId())) { //se o email for o mesmo, porem o se o id for o mesmo quer dizer que o usuario é o mesmo
+			salvar();
+		}
+	}
+	
+	public void abrirUsuarioListing() { //abir a lista de usuario
 		UsuarioListing listing = new UsuarioListing();
 		listing.open();
 	}
 	public void obterUsuariListing(SelectEvent<Usuario> event) {
 		setEntity(event.getObject());
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	@Override
 	public Usuario getEntity() {
 		if (entity == null)

@@ -1,8 +1,19 @@
 package br.unitins.rriphones.model;
 
-public class Telefone {
-	private Integer id;
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+@Entity
+public class Telefone extends DefaultEntity implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Column(length = 100)
 	private String codigoArea;
+	@Column(length = 100)
 	private String numero;
 	
 	
@@ -12,16 +23,7 @@ public class Telefone {
 	}
 
 	//metodos get e set
-	public Integer getId() {
-		return id;
-	}
-
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-
+	
 	public String getCodigoArea() {
 		return codigoArea;
 	}

@@ -14,16 +14,21 @@
 		rel="stylesheet" />
 </h:head>
 <h:body>
+
 	<div id="container">
+	<h:form id="form-links">
 		<nav>
 			<h1>
 				RR<span>Imports</span>
 			</h1>
 			<ul>
-				<li><p:commandLink value="Gerenciar usuarios" /></li>
-				<li><p:commandLink value="Gerenciar aparelhos" /></li>
+			
+				<li><p:commandLink action="managerUsuario.xhtml?faces-redirect=true" value="Gerenciar usuarios" /></li>
+				<li><p:commandLink action="managerEndereco.xhtml?faces-redirect=true" value="Gerenciar Endereços" /></li>
+				<li><p:commandLink action="managerTelefone.xhtml?faces-redirect=true" value="Gerenciar Telefone" /></li>
 			</ul>
 		</nav>
+		</h:form>
 		<div id="contents">
 			
 				<ui:insert name="manager-template">

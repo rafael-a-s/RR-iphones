@@ -1,11 +1,23 @@
 package br.unitins.rriphones.model;
 
-public class Endereco {
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+@Entity
+public class Endereco extends DefaultEntity implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+
 	//variaveis
-	private Integer id ;
+	@Column(length = 100)
 	private String cep;
-	private String end; // A variavel ficou abreviada por causa do nome da class
+	@Column(length = 100)
+	private String endereco; // A variavel ficou abreviada por causa do nome da class
+	@Column(length = 100)
 	private Integer numero;
+	@Column(length = 100)
 	private String complemento;
 	
 	public Endereco() { // construtor de Endereço
@@ -13,23 +25,18 @@ public class Endereco {
 	}
 	
 	//metodos get e set
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
+	
 	public String getCep() {
 		return cep;
 	}
 	public void setCep(String cep) {
 		this.cep = cep;
 	}
-	public String getEnd() {
-		return end;
+	public String getEndereco() {
+		return endereco;
 	}
-	public void setEnd(String end) {
-		this.end = end;
+	public void setEndereco(String end) {
+		this.endereco = end;
 	}
 	public Integer getNumero() {
 		return numero;

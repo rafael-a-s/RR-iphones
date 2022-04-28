@@ -38,7 +38,7 @@ public abstract class Controller<T extends DefaultEntity> {
 	}
 	public void excluir() {
 		try {
-			getRepo().delete(getEntity());
+			getRepo().remove(getEntity());
 			Util.addInfoMessage("Exclusão realizada com sucesso !");
 			limpar();
 		} catch(RepositoryException e){

@@ -7,7 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 @Entity
 public class Usuario extends DefaultEntity implements Serializable {
-
+	//ideia: cliente fazer primeiro um cadaastro bem basico
 	private static final long serialVersionUID = 264552829892031483L;
 	@Column(length = 100)
 	private String nome;

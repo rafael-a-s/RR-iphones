@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+	<title>Compra</title>
+
+
+	<link href="resources/css/profile.css" rel="stylesheet" type="text/css" />
+	<link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+		rel="stylesheet" />
+</h:head>
+<ui:composition template="/index.xhtml">
+	<ui:define name="index-template">
+		<div id="profile-final-register">
+
+
+			<p:tabView>
+				<p:tab title="Perfil">
+					<h:outputLabel value="#{indexController.entity.nome}" />
+					<h:outputLabel value="#{indexController.entity.cpf}" />
+					<h:outputLabel value="#{indexController.entity.email}" />
+					<p:commandButton value="Editar" />
+				</p:tab>
+				<p:tab title="Endereco">
+					<p:dataTable id="dataTable" value="#{enderecoListing.list}"
+						var="obj">
+						<p:column headerText="Cep">
+							<p:outputLabel value="#{obj.cep}" />
+						</p:column>
+						<p:column headerText="Endereço">
+							<p:outputLabel value="#{obj.endereco}" />
+						</p:column>
+						<p:column headerText="Numero">
+							<p:outputLabel value="#{obj.numero}" />
+						</p:column>
+						<p:column headerText="Complemento">
+							<p:outputLabel value="#{obj.complemento}" />
+						</p:column>
+						<p:column headerText="Ação">
+							<p:commandButton value="Selecionar"
+								actionListener="#{enderecoListing.select(obj.id)}"
+								process="@this" update="@form" />
+						</p:column>
+					</p:dataTable>
+				</p:tab>
+				<p:tab title="Cartões">
+					
+				</p:tab>
+			</p:tabView>
+		</div>
+
+
+
+
+
+	</ui:define>
+</ui:composition>
+
+</html>

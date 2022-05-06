@@ -34,7 +34,7 @@ public class LoginController extends Controller<Usuario> implements Serializable
 		if(getEntity() != null & getEntity().getEmail().equals(getUsu().getEmail()) & getEntity().getSenha().equals(senhaAux)) {
 			Util.addInfoMessage("Secesso ao efetuar login");
 			Session.getInstance().set("UsuarioLogado", getEntity());
-			Util.redirect("products.xhtml");
+			Util.redirect("../products.xhtml");
 		}else {
 			Util.addErrorMessage("Email ou senhas incorretos");
 		}

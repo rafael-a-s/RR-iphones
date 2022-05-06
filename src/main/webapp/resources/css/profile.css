@@ -60,3 +60,15 @@
     align-items: center;
     justify-content: center;
 }
+
+
+#profile-final-register{
+	margin-top: 7rem;
+	height: 100%;
+	width:100%;
+	min-height: 30rem;
+	display: flex;
+	
+	align-items: center;
+	justify-content: center;
+}

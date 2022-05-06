@@ -34,7 +34,7 @@
 			</h:outputLabel>
 			<h:outputLabel class="user" rendered="#{indexController.entity.id == null}">
 				<span class="material-icons"> person_outline </span>
-				<h:commandLink>Entre ou registre-se</h:commandLink>
+				<h:commandLink action="/login/login.xhtml?faces-redirect=true" >Entre ou registre-se</h:commandLink>
 
 			</h:outputLabel >
 			<h:outputLabel class="user" rendered="#{indexController.entity.id != null}">

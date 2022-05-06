@@ -7,9 +7,7 @@ import javax.persistence.Entity;
 
 @Entity
 public class Telefone extends DefaultEntity implements Serializable {
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	@Column(length = 100)
 	private String codigoArea;
@@ -21,6 +19,14 @@ public class Telefone extends DefaultEntity implements Serializable {
 	public Telefone() {
 		
 	}
+	
+	//contrutor para testes no packager de testes
+	public Telefone(String codigoArea, String numero) {
+		super();
+		this.codigoArea = codigoArea;
+		this.numero = numero;
+	}
+
 
 	//metodos get e set
 	

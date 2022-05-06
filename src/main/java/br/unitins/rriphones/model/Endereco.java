@@ -24,6 +24,16 @@ public class Endereco extends DefaultEntity implements Serializable{
 		
 	}
 	
+	//construtor para testes no packager de testes
+	public Endereco(String cep, String endereco, Integer numero, String complemento) {
+		super();
+		this.cep = cep;
+		this.endereco = endereco;
+		this.numero = numero;
+		this.complemento = complemento;
+	}
+
+
 	//metodos get e set
 	
 	public String getCep() {

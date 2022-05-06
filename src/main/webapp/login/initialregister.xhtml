@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+	<title>Login</title>
+	<link href="resources/css/login.css" rel="stylesheet" type="text/css" />
+	<link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+		rel="stylesheet" />
+</h:head>
+<ui:composition template="/login/login.xhtml">
+	<ui:define name="signInOrSignUp">
+		<div class="right">
+
+			<h2>Cadastro</h2>
+
+			<h:form id="form-register">
+				<p:growl id="growl" showDetail="true" />
+				<h:outputLabel>
+					<span class="material-icons"> person_outline </span>
+					<h:inputText pt:placeholder="Nome" required="true"
+						requiredMessage="O nome deve ser informado."
+						value="#{initialregisterController.entity.nome}" />
+				</h:outputLabel>
+				<h:outputLabel>
+					<span class="material-icons"> mail_outline </span>
+					<h:inputText pt:placeholder="Email" type="Email"
+						validatorMessage="O email deve seguir o padrão : usuario@usu.com"
+						value="#{initialregisterController.entity.email}">
+						<f:validateRegex
+							pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+					</h:inputText>
+				</h:outputLabel>
+				<span>
+					<p:datePicker id="basic" placeholder="Data de Nascimento"  value="#{initialregisterController.entity.dataNascimento}" />
+				</span>
+				
+
+				<h:outputLabel>
+					<span class="material-icons"> lock </span>
+					<h:inputSecret pt:placeholder="Senha"
+						value="#{initialregisterController.entity.senha}" />
+				</h:outputLabel>
+
+				<h:outputLabel>
+					<span class="material-icons"> lock </span>
+					<h:inputSecret pt:placeholder="Repita sua senha"
+						value="#{initialregisterController.comparePassword}" />
+				</h:outputLabel>
+
+
+
+
+				<h:commandButton class="btn-login" value="CADASTRAR"
+					action="#{initialregisterController.validationPassword}" />
+
+
+			</h:form>
+			<h:form>
+				<h:commandLink action="login.xhtml?faces-redirect=true">ou faça login!</h:commandLink>
+			</h:form>
+
+		</div>
+	</ui:define>
+</ui:composition>
+
+</html>

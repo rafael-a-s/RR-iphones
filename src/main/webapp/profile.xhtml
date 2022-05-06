@@ -21,10 +21,12 @@
 			</section>
 			<h:graphicImage value="/resources/image/user.png" />
 			<section id="profile-top80">
+			<ui:insert name="profile-tamplate">
+
 				<h:outputLabel value="#{indexController.entity.nome}" />
 				<h:outputLabel value="#{indexController.entity.email}" />
 
-
+			</ui:insert>
 				<p:commandButton value="Editar informações" type="button"
 					icon="pi pi-external-link" onclick="PF('dlg2').show()" />
 				<p:dialog header="Alterar" widgetVar="dlg2" minHeight="40"

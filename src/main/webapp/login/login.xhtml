@@ -9,7 +9,7 @@
 	<meta name="google-signin-client_id"
 		content="169506297000-ur7knin2lb4h3fpvultobqutmtdlsg4j.apps.googleusercontent.com" />
 	<title>Login</title>
-	<link href="resources/css/login.css" rel="stylesheet" type="text/css" />
+	<link href="../resources/css/login.css" rel="stylesheet" type="text/css" />
 	<link href="https://fonts.googleapis.com/css2?family=Material+Icons"
 		rel="stylesheet" />
 	<script src="https://apis.google.com/js/platform.js"></script>
@@ -31,7 +31,7 @@
 			<ui:insert name="signInOrSignUp">
 				<h2>Login</h2>
 				<div class="btn-google">
-					<h:graphicImage value="./resources/icons/icons8-google-plus.svg" />
+					<h:graphicImage value="../resources/icons/icons8-google-plus.svg" />
 					<h:commandLink action="onSignIn();" value="Sign in White Google" />
 
 					<div class="g-signin2" data-onsuccess="onSignIn">
@@ -63,7 +63,7 @@
 
 				</h:form>
 				<h:form>
-					<h:commandLink>Esqueceu a senha ?</h:commandLink>
+					<h:commandLink action="toRecover.xhtml?faces-redirect=true">Esqueceu a senha ?</h:commandLink>
 					<h:commandLink action="initialregister.xhtml?faces-redirect=true">ou cadastre-se!</h:commandLink>
 				</h:form>
 				

@@ -5,8 +5,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 @Entity
@@ -28,13 +30,17 @@ public class Usuario extends DefaultEntity implements Serializable {
 	@Column
 	private Date dataNascimento;
 	
-	@OneToOne
+	@Column
+	private String sexo;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn
 	private Telefone telefone;
 	
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<Cartao> listaCartao;
 	
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<Endereco> listaEndereco;
 	
 	//construtor  de usuario
@@ -44,23 +50,27 @@ public class Usuario extends DefaultEntity implements Serializable {
 	
 	
 	//contrutor para teste no pacger de teste
-	public Usuario(String nome, String email, String senha, String cpf, Date dataNascimento, Telefone telefone,
-			List<Cartao> listaCartao, List<Endereco> listaEndereco) {
+	
+
+
+
+	//Metodos get e set
+	
+	
+	public Usuario(String nome, String email, String senha, String cpf, Date dataNascimento, String sexo,
+			Telefone telefone, List<Cartao> listaCartao, List<Endereco> listaEndereco) {
 		super();
 		this.nome = nome;
 		this.email = email;
 		this.senha = senha;
 		this.cpf = cpf;
 		this.dataNascimento = dataNascimento;
+		this.sexo = sexo;
 		this.telefone = telefone;
 		this.listaCartao = listaCartao;
 		this.listaEndereco = listaEndereco;
 	}
 
-
-
-	//Metodos get e set
-	
 	public String getNome() {
 		return nome;
 	}
@@ -101,6 +111,8 @@ public class Usuario extends DefaultEntity implements Serializable {
 	}
 
 	public Telefone getTelefone() {
+		if(telefone == null)
+			telefone = new Telefone();
 		return telefone;
 	}
 
@@ -124,6 +136,16 @@ public class Usuario extends DefaultEntity implements Serializable {
 
 	public void setListaEndereco(List<Endereco> listaEndereco) {
 		this.listaEndereco = listaEndereco;
+	}
+
+
+	public String getSexo() {
+		return sexo;
+	}
+
+
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
 	}
 
 	

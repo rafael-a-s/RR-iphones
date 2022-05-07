@@ -24,8 +24,10 @@ public class TestesJPA {
 		
 		UsuarioRepository u = new UsuarioRepository();
 		Usuario usu = new Usuario("rafael","rafaelaguiar@gmail.com","2512",
-				 "07086036374", new Date(2001,12,14), new Telefone("99","984232991"),
+				 "07086036374", new Date(2001,12,14),"masculino", new Telefone("99","984232991"),
 					listCartao,listEnd);
+		
+		u.save(usu);
 		
 	}
 }

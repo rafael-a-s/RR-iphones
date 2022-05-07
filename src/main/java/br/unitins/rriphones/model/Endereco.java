@@ -1,6 +1,7 @@
 package br.unitins.rriphones.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -59,6 +60,24 @@ public class Endereco extends DefaultEntity implements Serializable{
 	}
 	public void setComplemento(String complemento) {
 		this.complemento = complemento;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(cep, complemento, endereco, numero);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Endereco other = (Endereco) obj;
+		return Objects.equals(cep, other.cep) && Objects.equals(complemento, other.complemento)
+				&& Objects.equals(endereco, other.endereco) && Objects.equals(numero, other.numero);
 	}
 	
 	

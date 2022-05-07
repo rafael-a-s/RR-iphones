@@ -1,6 +1,7 @@
 package br.unitins.rriphones.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -47,6 +48,23 @@ public class Telefone extends DefaultEntity implements Serializable {
 
 	public void setNumero(String numero) {
 		this.numero = numero;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(codigoArea, numero);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Telefone other = (Telefone) obj;
+		return Objects.equals(codigoArea, other.codigoArea) && Objects.equals(numero, other.numero);
 	}
 	
 	

@@ -1,5 +1,8 @@
 package br.unitins.rriphones.model;
 
+import javax.persistence.Entity;
+
+
 public enum Genero {
 
 	

@@ -1,10 +1,18 @@
 package br.unitins.rriphones.model;
 
+import java.io.Serializable;
+import java.util.Objects;
+
 import javax.persistence.Entity;
 
 @Entity
-public class Cartao extends DefaultEntity {
+public class Cartao extends DefaultEntity implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private String nomeCartao;
 	
 	private String numeroCartao;
@@ -78,6 +86,31 @@ public class Cartao extends DefaultEntity {
 
 	public void setFuncao(Funcao funcao) {
 		this.funcao = funcao;
+	}
+
+
+
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(cvv, dataValidade, funcao, nomeCartao, numeroCartao);
+	}
+
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cartao other = (Cartao) obj;
+		return Objects.equals(cvv, other.cvv) && Objects.equals(dataValidade, other.dataValidade)
+				&& funcao == other.funcao && Objects.equals(nomeCartao, other.nomeCartao)
+				&& Objects.equals(numeroCartao, other.numeroCartao);
 	}
 	
 	

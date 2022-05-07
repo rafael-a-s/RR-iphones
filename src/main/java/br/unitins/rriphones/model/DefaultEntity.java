@@ -9,7 +9,7 @@ import javax.persistence.Version;
 public class DefaultEntity {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
 	@Version

@@ -17,36 +17,65 @@
 	<ui:define name="index-template">
 		<div id="profile-container">
 			<section id="profile-top20">
-			<p:growl id="message" showDetail="true"/>
+				<p:growl id="message" showDetail="true" />
+				<h:graphicImage value="/resources/image/user.png" />
 			</section>
-			<h:graphicImage value="/resources/image/user.png" />
+
 			<section id="profile-top80">
-			<ui:insert name="profile-tamplate">
+				<p:tabView>
+					<p:tab title="Perfil">
+						<h:outputLabel value="#{indexController.entity.nome}" />
+						<h:outputLabel value="#{indexController.entity.cpf}" />
+						<h:outputLabel value="#{indexController.entity.email}" />
+						<h:outputLabel value="#{indexController.entity.telefone.numero}" />
+						<p:commandButton value="Editar" />
+					</p:tab>
+					<p:tab title="Endereco">
+						<div id="endereco">
 
-				<h:outputLabel value="#{indexController.entity.nome}" />
-				<h:outputLabel value="#{indexController.entity.email}" />
+							<p:repeat value="#{indexController.entity.listaEndereco}"
+								var="obj">
+								<div id="endereco">
+									<h2>Cep :</h2>
+									<span>#{obj.cep}</span>
+									<h2>Endereço :</h2>
+									<span>#{obj.endereco}</span>
+									<h2>Número :</h2>
+									<span>#{obj.numero}</span>
+									<h2>Complemento :</h2>
+									<span>#{obj.complemento}</span>
+								</div>
+							</p:repeat>
+						</div>
+					</p:tab>
+					<p:tab title="Cartões">
+					<p:repeat value="#{indexController.entity.listaCartao}"
+								var="obj">
+						<div id="content-cartao">
+							<div class="tarja-branca"></div>
 
-			</ui:insert>
-				<p:commandButton value="Editar informações" type="button"
-					icon="pi pi-external-link" onclick="PF('dlg2').show()" />
-				<p:dialog header="Alterar" widgetVar="dlg2" minHeight="40"
-					width="600" showEffect="fade" modal="true">
-					
-					<div class="edit-profile">
-						<p:inputText pt:placeholder="Nome" value="#{indexController.entity.nome}"/>
-						<p:inputText pt:placeholder="Email" value="#{indexController.entity.email}"/>
+							<div class="dados">
+								<div class="numero">
+									<p>#{obj.numeroCartao}</p>
+								</div>
+								<div class="sub-dados">
+									<span>#{obj.nomeCartao}</span> <span>#{obj.dataValidade}</span> <span>#{obj.cvv}</span>
+								</div>
+
+							</div>
+
+						</div>
+						</p:repeat>
 						
-						
-       					  
-						 <p:commandButton value="Confirm" action="#{indexController.alterarUsuarioLogado}" update="message" styleClass="p-mr-2" icon="pi pi-check">
-           		 			<p:confirm type="popup" header="Confirmation" message="Are you sure you want to proceed?" icon="pi pi-exclamation-triangle"/>
-        				 </p:commandButton>
-        				  <p:confirmPopup global="true">
-				            <p:commandButton value="No" type="button" styleClass="ui-confirm-popup-no ui-button-flat"/>
-				            <p:commandButton value="Yes" type="button" styleClass="ui-confirm-popup-yes" />
-       					  </p:confirmPopup>
-					</div>
-				</p:dialog>
+					</p:tab>
+				</p:tabView>
+
+
+
+
+
+
+
 			</section>
 		</div>
 

@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import br.unitins.rriphones.application.RepositoryException;
+import br.unitins.rriphones.application.Util;
 import br.unitins.rriphones.model.Cartao;
 import br.unitins.rriphones.model.Endereco;
 import br.unitins.rriphones.model.Funcao;
@@ -27,6 +28,7 @@ public class TestesJPA {
 				 "07086036374", new Date(2001,12,14),"masculino", new Telefone("99","984232991"),
 					listCartao,listEnd);
 		
+		usu.setSenha(Util.hash(usu));
 		u.save(usu);
 		
 	}

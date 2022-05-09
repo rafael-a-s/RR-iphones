@@ -9,7 +9,7 @@
 		<class>br.unitins.rriphones.model.DefaultEntity</class>
 		<class>br.unitins.rriphones.model.Endereco</class>
 		<class>br.unitins.rriphones.model.Telefone</class>
-		
+		<class>br.unitins.rriphones.model.Pagamento</class>
 		
 
 		<properties>

@@ -119,7 +119,46 @@ div#container{
 	
 }
 
+#content-cartao{
+  width: 30rem;
+  height: 14rem;
+  border-radius: 1rem;
+  background-color: rgb(143, 13, 182);
 
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+#content-cartao .tarja-branca{
+  background-color: rgb(255, 255, 255);
+  height: 4rem;
+}
+
+#content-cartao .dados{
+  display: flex;
+  flex-direction: column;
+ 
+}
+#content-cartao .dados .numero{
+  width: 100%;
+  margin-left: 1rem;
+}
+#content-cartao .dados .numero p{
+  font-size: 1.5rem;
+  color: white;
+}
+#content-cartao .dados .sub-dados{
+  display: flex;
+  gap: 1rem;
+  margin-left: 1rem;
+}
+#content-cartao .dados .sub-dados span{
+  color: white;
+}
 
 footer{
 	

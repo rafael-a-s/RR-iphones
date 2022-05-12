@@ -22,54 +22,78 @@
 			</section>
 
 			<section id="profile-top80">
-				<p:tabView>
-					<p:tab title="Perfil">
-						<h:outputLabel value="#{indexController.entity.nome}" />
-						<h:outputLabel value="#{indexController.entity.cpf}" />
-						<h:outputLabel value="#{indexController.entity.email}" />
-						<h:outputLabel value="#{indexController.entity.telefone.numero}" />
-						<p:commandButton value="Editar" />
-					</p:tab>
-					<p:tab title="Endereco">
-						<div id="endereco">
+				<div class="content-dados">
+					<p:tabView>
+						<p:tab title="Perfil">
+							<div id="content-perfil">
+								<div class="dados">
+									<p>
+										Nome : <span>#{indexController.entity.nome}</span>
+									</p>
+									<p>
+										Cpf : <span>#{indexController.entity.cpf}</span>
+									</p>
+									<p>
+										Email : <span>#{indexController.entity.email}</span>
+									</p>
+									<p>
+										Data de nascimento : <span>#{indexController.entity.dataNascimento}</span>
+									</p>
+									<p>
+										Sexo : <span>#{indexController.entity.sexo}</span>
+									</p>
+									<p>
+										Telefone : <span>(#{indexController.entity.telefone.codigoArea}) #{indexController.entity.telefone.numero}</span>
+									</p>
 
-							<p:repeat value="#{indexController.entity.listaEndereco}"
-								var="obj">
-								<div id="endereco">
-									<h2>Cep :</h2>
-									<span>#{obj.cep}</span>
-									<h2>Endereço :</h2>
-									<span>#{obj.endereco}</span>
-									<h2>Número :</h2>
-									<span>#{obj.numero}</span>
-									<h2>Complemento :</h2>
-									<span>#{obj.complemento}</span>
 								</div>
-							</p:repeat>
-						</div>
-					</p:tab>
-					<p:tab title="Cartões">
-					<p:repeat value="#{indexController.entity.listaCartao}"
-								var="obj">
-						<div id="content-cartao">
-							<div class="tarja-branca"></div>
-
-							<div class="dados">
-								<div class="numero">
-									<p>#{obj.numeroCartao}</p>
-								</div>
-								<div class="sub-dados">
-									<span>#{obj.nomeCartao}</span> <span>#{obj.dataValidade}</span> <span>#{obj.cvv}</span>
+								<div class="buttons">
+									<button>Alterar dados</button>
 								</div>
 
 							</div>
+						</p:tab>
+						<p:tab title="Endereco">
+							<div id="endereco">
 
-						</div>
-						</p:repeat>
-						
-					</p:tab>
-				</p:tabView>
+								<p:repeat value="#{indexController.entity.listaEndereco}"
+									var="obj">
+									<div id="endereco">
+										<h2>Cep :</h2>
+										<span>#{obj.cep}</span>
+										<h2>Endereço :</h2>
+										<span>#{obj.endereco}</span>
+										<h2>Número :</h2>
+										<span>#{obj.numero}</span>
+										<h2>Complemento :</h2>
+										<span>#{obj.complemento}</span>
+									</div>
+								</p:repeat>
+							</div>
+						</p:tab>
+						<p:tab title="Cartões">
+							<p:repeat value="#{indexController.entity.listaCartao}" var="obj">
+								<div id="content-cartao">
+									<div class="tarja-branca"></div>
 
+									<div class="dados">
+										<div class="numero">
+											<p>#{obj.numeroCartao}</p>
+										</div>
+										<div class="sub-dados">
+											<span>#{obj.nomeCartao}</span> <span>#{obj.dataValidade}</span>
+											<span>#{obj.cvv}</span>
+										</div>
+
+									</div>
+
+								</div>
+							</p:repeat>
+
+						</p:tab>
+
+					</p:tabView>
+				</div>
 
 
 

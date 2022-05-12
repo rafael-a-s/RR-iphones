@@ -13,57 +13,85 @@
 </h:head>
 <ui:composition template="/login/login.xhtml">
 	<ui:define name="signInOrSignUp">
-		<div class="right">
 
-			<h2>Cadastro</h2>
-
-			<h:form id="form-register">
-				<p:growl id="growl" showDetail="true" />
-				<h:outputLabel>
-					<span class="material-icons"> person_outline </span>
-					<h:inputText pt:placeholder="Nome" required="true"
-						requiredMessage="O nome deve ser informado."
-						value="#{initialregisterController.entity.nome}" />
-				</h:outputLabel>
-				<h:outputLabel>
-					<span class="material-icons"> mail_outline </span>
-					<h:inputText pt:placeholder="Email" type="Email"
-						validatorMessage="O email deve seguir o padrão : usuario@usu.com"
-						value="#{initialregisterController.entity.email}">
+		
+			<div id="content-cadastro">
+			<h:form>
+				<h1>Cadastro</h1>
+				<div>
+					<section>
+						<span class="material-symbols-outlined"> person </span>
+					</section>
+					<p:inputText pt:placeholder="nome Completo"
+						value="#{initialregisterController.entity.nome}" required="true"
+						requiredMessage="O nome deve ser informado.">
+						<f:validateRegex pattern="/[A-Z][a-z]* [A-Z][a-z]*/" />
+					</p:inputText>
+				</div>
+				<div>
+					<section>
+						<span class="material-symbols-outlined"> mail </span>
+					</section>
+					<p:inputText pt:placeholder="email"
+						value="#{initialregisterController.entity.email}"
+						validatorMessage="O email é inválido">
 						<f:validateRegex
 							pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
-					</h:inputText>
-				</h:outputLabel>
-				<span>
-					<p:datePicker id="basic" placeholder="Data de Nascimento"  value="#{initialregisterController.entity.dataNascimento}" />
-				</span>
-				
+					</p:inputText>
+				</div>
+				<div style="margin-left: -18rem; margin-top: 1rem; position: false;">
+					<section>
+						<span style="z-index: 100; top: 0.4rem; left: 0.9rem;"
+							class="material-symbols-outlined"> calendar_month </span>
+					</section>
+					<p:datePicker id="basic" required="true"
+						requiredMessage="Informa sua data de nascimento"
+						value="#{initialregisterController.entity.dataNascimento}"
+						placeholder="data de nascimento" />
 
-				<h:outputLabel>
-					<span class="material-icons"> lock </span>
-					<h:inputSecret pt:placeholder="Senha"
+				</div>
+				<div class="sexo">
+					<section>
+						<span class="material-symbols-outlined"> wc </span>
+					</section>
+					<p:selectOneMenu id="option"
+						value="#{initialregisterController.entity.sexo}">
+						<f:selectItem itemLabel="Selecione seu sexo" />
+						<f:selectItems var="obj"
+							value="#{initialregisterController.listaSexo}"
+							itemLabel="#{obj.label}" />
+						<f:facet name="footer">
+							<p:divider styleClass="p-mt-0" />
+							<h:outputText value="2 opções" style="font-weight:bold;" />
+						</f:facet>
+					</p:selectOneMenu>
+				</div>
+				<div style="margin-left: -18rem; margin-top: 1rem; position: false;">
+					<section>
+						<span style="z-index: 100; top: 0.4rem; left: 0.9rem;"
+							class="material-symbols-outlined"> screen_lock_landscape </span>
+					</section>
+					<p:password toggleMask="true" pt:placeholder="senha"
 						value="#{initialregisterController.entity.senha}" />
-				</h:outputLabel>
-
-				<h:outputLabel>
-					<span class="material-icons"> lock </span>
-					<h:inputSecret pt:placeholder="Repita sua senha"
+				</div>
+				<div style="margin-left: -18rem; margin-top: 1rem; position: false;">
+					<section>
+						<span style="z-index: 100; top: 0.4rem; left: 0.9rem;"
+							class="material-symbols-outlined"> screen_lock_landscape </span>
+					</section>
+					<p:password toggleMask="true" pt:placeholder="repita sua senha"
 						value="#{initialregisterController.comparePassword}" />
-				</h:outputLabel>
-
-
-
-
-				<h:commandButton class="btn-login" value="CADASTRAR"
-					action="#{initialregisterController.validationPassword}" />
-
-
-			</h:form>
-			<h:form>
-				<h:commandLink action="login.xhtml?faces-redirect=true">ou faça login!</h:commandLink>
-			</h:form>
-
+				</div>
+				<div class="button">
+					<h:commandButton class="btn-login" value="CADASTRAR" action="#{initialregisterController.salvar}" />
+				</div>
+		</h:form>
+		<h:form>
+			<h:commandLink action="login.xhtml?faces-redirect=true"
+				value="ou faça login ?" />
+		</h:form>
 		</div>
+
 	</ui:define>
 </ui:composition>
 

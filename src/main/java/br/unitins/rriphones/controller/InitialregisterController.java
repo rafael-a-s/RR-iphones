@@ -9,6 +9,7 @@ import javax.inject.Named;
 import br.unitins.rriphones.application.RepositoryException;
 import br.unitins.rriphones.application.Session;
 import br.unitins.rriphones.application.Util;
+import br.unitins.rriphones.model.Genero;
 import br.unitins.rriphones.model.Usuario;
 import br.unitins.rriphones.repository.UsuarioRepository;
 @Named
@@ -20,6 +21,11 @@ public class InitialregisterController extends Controller<Usuario> implements Se
 	 */
 	private static final long serialVersionUID = 1L;
 	private String comparePassword;
+	
+	public InitialregisterController() {
+		super(new UsuarioRepository());
+		
+	}
 	
 	public boolean validationPassword() throws RepositoryException {
 		UsuarioRepository u = new UsuarioRepository();
@@ -39,11 +45,10 @@ public class InitialregisterController extends Controller<Usuario> implements Se
 		}
 		return false;
 	}
-
-	public InitialregisterController() {
-		super(new UsuarioRepository());
-		
+	public Genero[] getListaSexo() {
+		return Genero.values();
 	}
+	
 	
 	@Override
 	public Usuario getEntity() {

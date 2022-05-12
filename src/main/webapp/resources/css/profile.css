@@ -53,6 +53,9 @@
     align-items: center;
     justify-content: center;
 }
+#profile-container #profile-top80 .content-dados{
+	    margin-top: 8rem;
+}
 #profile-container #profile-top20 img {
 	width:10rem;
 	height: 10rem;
@@ -78,3 +81,37 @@
 	align-items: center;
 	justify-content: center;
 }
+#content-perfil{
+  width: 30rem;
+  height: auto;
+  border: 1px solid black;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-color: antiquewhite;
+}
+#content-perfil .dados p {
+  color: black;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+#content-perfil .dados p span{
+  font-style: italic;
+  font-weight: 100;
+}
+#content-perfil .buttons{
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  flex-direction: row-reverse;
+  
+}
+#content-perfil .buttons button{
+  height: 3rem;
+  width: 5rem;
+  margin-right: 5rem;
+}
+

@@ -48,15 +48,8 @@ public class Usuario extends DefaultEntity implements Serializable {
 		
 	}
 	
-	
+		
 	//contrutor para teste no pacger de teste
-	
-
-
-
-	//Metodos get e set
-	
-	
 	public Usuario(String nome, String email, String senha, String cpf, Date dataNascimento, String sexo,
 			Telefone telefone, List<Cartao> listaCartao, List<Endereco> listaEndereco) {
 		super();
@@ -70,6 +63,7 @@ public class Usuario extends DefaultEntity implements Serializable {
 		this.listaCartao = listaCartao;
 		this.listaEndereco = listaEndereco;
 	}
+	//Metodos get e set
 
 	public String getNome() {
 		return nome;

@@ -1,0 +1,55 @@
+form{  
+    height: 100%;
+}
+#iphone-content{
+	width: 100%;
+    height: 100%;
+    
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+        "iphone iphone"
+        "modelo foto"
+        "buttons buttons";
+}
+#iphone-content .iphone{
+	width:100%;
+	height: auto;
+	display:flex;
+	align-items:center;
+	justify-content: center;
+	flex-direction: column;
+	gap:.5rem;
+	grid-column-start: iphone;
+    grid-column-end: iphone;
+}
+#iphone-content .modelo{
+	width:100%;
+	height: auto;
+	display:flex;
+	align-items:center;
+	flex-direction: column;
+	gap:.5rem;
+	
+	grid-column-start: modelo;
+}
+#iphone-content .foto{
+	width:100%;
+	height: auto;
+	display:flex;
+	align-items:center;
+	flex-direction: column;
+	gap:.5rem;
+	
+	grid-column-end: foto;
+}
+#iphone-content .buttons{
+	width:100%;
+	height: auto;
+	display:flex;
+	align-items:center;
+	justify-content: center;
+	gap:1rem;
+	grid-column: buttons;
+	
+}

@@ -61,6 +61,7 @@
 	height: 10rem;
 	position: absolute;
 	bottom: -4rem;
+	border-radius: 50%;
 }
 #profile-container #profile-top80 .edit-profile{
 	width: auto;
@@ -83,35 +84,29 @@
 }
 #content-perfil{
   width: 30rem;
-  height: auto;
-  border: 1px solid black;
-  border-radius: 1rem;
+  height: 100%;
+}
+#content-perfil .grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap:1rem;
+}
+#content-end div{
+	background: #deddda;
+	width:100%;
+	height: auto;
+	
+	border-radius: 0.5rem;
+	
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	
+	align-items: center;
+	justify-content: center;
+}
+#content-end div section{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  background-color: antiquewhite;
+  margin-top:1rem;
 }
-#content-perfil .dados p {
-  color: black;
-  font-weight: bold;
-  font-size: 1.5rem;
-}
-#content-perfil .dados p span{
-  font-style: italic;
-  font-weight: 100;
-}
-#content-perfil .buttons{
-  width: 100%;
-  height: 5rem;
-  display: flex;
-  flex-direction: row-reverse;
-  
-}
-#content-perfil .buttons button{
-  height: 3rem;
-  width: 5rem;
-  margin-right: 5rem;
-}
-

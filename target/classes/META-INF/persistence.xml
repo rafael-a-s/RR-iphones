@@ -10,6 +10,9 @@
 		<class>br.unitins.rriphones.model.Endereco</class>
 		<class>br.unitins.rriphones.model.Telefone</class>
 		<class>br.unitins.rriphones.model.Pagamento</class>
+		<class>br.unitins.rriphones.model.Iphone</class>
+		<class>br.unitins.rriphones.model.Modelo</class>
+		<class>br.unitins.rriphones.model.Estoque</class>
 		
 
 		<properties>

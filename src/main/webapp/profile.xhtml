@@ -18,7 +18,15 @@
 		<div id="profile-container">
 			<section id="profile-top20">
 				<p:growl id="message" showDetail="true" />
-				<h:graphicImage value="/resources/image/user.png" />
+				<img src="img-usuario?nome=#{indexController.entity.id}.png" />
+				<div style="position: absolute; bottom: -7rem;">
+					<p:commandButton value="Alterar foto" type="button"
+						icon="pi pi-external-link" onclick="PF('dlg3').show()" />
+				</div>
+
+
+
+
 			</section>
 
 			<section id="profile-top80">
@@ -26,47 +34,56 @@
 					<p:tabView>
 						<p:tab title="Perfil">
 							<div id="content-perfil">
-								<div class="dados">
-									<p>
-										Nome : <span>#{indexController.entity.nome}</span>
-									</p>
-									<p>
-										Cpf : <span>#{indexController.entity.cpf}</span>
-									</p>
-									<p>
-										Email : <span>#{indexController.entity.email}</span>
-									</p>
-									<p>
-										Data de nascimento : <span>#{indexController.entity.dataNascimento}</span>
-									</p>
-									<p>
-										Sexo : <span>#{indexController.entity.sexo}</span>
-									</p>
-									<p>
-										Telefone : <span>(#{indexController.entity.telefone.codigoArea}) #{indexController.entity.telefone.numero}</span>
-									</p>
 
+								<div class="grid">
+									<section>
+										<strong>Nome: </strong>
+										<p>#{indexController.entity.nome}</p>
+									</section>
+									<section>
+										<strong>Cpf: </strong>
+										<p>#{indexController.entity.cpf}</p>
+									</section>
+									<section>
+										<strong>Email: </strong>
+										<p>#{indexController.entity.email}</p>
+									</section>
+									<section>
+										<strong>Data de nascimento: </strong>
+										<p>#{indexController.entity.dataNascimento}</p>
+									</section>
+									<section>
+										<strong>Sexo: </strong>
+										<p>#{indexController.entity.sexo}</p>
+									</section>
+									<section>
+										<strong>Telefone:</strong>
+										<p>(#{indexController.entity.telefone.codigoArea})
+											#{indexController.entity.telefone.numero}</p>
+									</section>
 								</div>
-								<div class="buttons">
-									<button>Alterar dados</button>
+								<div style="margin-top: 1rem;">
+									<p:commandButton value="Editar" type="button"
+										icon="pi pi-external-link" onclick="PF('dlg4').show()" />
 								</div>
 
 							</div>
 						</p:tab>
-						<p:tab title="Endereco">
+						<p:tab title="Endereços">
 							<div id="endereco">
 
 								<p:repeat value="#{indexController.entity.listaEndereco}"
 									var="obj">
-									<div id="endereco">
-										<h2>Cep :</h2>
-										<span>#{obj.cep}</span>
-										<h2>Endereço :</h2>
-										<span>#{obj.endereco}</span>
-										<h2>Número :</h2>
-										<span>#{obj.numero}</span>
-										<h2>Complemento :</h2>
-										<span>#{obj.complemento}</span>
+									<div id="content-end">
+										<div>
+
+											<section>
+												<p>#{obj.cep}, #{obj.endereco}</p>
+												<br />
+												<p>#{obj.numero}, #{obj.complemento}</p>
+											</section>
+											<p:commandButton value="Alterar Endereço" />
+										</div>
 									</div>
 								</p:repeat>
 							</div>
@@ -95,13 +112,77 @@
 					</p:tabView>
 				</div>
 
+				<p:dialog header="Faça o upload de sua foto" widgetVar="dlg3"
+					minHeight="40" width="350" showEffect="fade">
+					<h:form enctype="multipart/form-data">
+						<p:fileUpload id="fileUpload" listener="#{indexController.upload}"
+							mode="advanced" update="fileUpload @form"
+							label="Selecione uma foto ..." global="false">
+						</p:fileUpload>
+						<p:growl id="messages" showDetail="true" />
+					</h:form>
+					<f:facet name="footer">
 
+						<p:commandButton type="button" value="No"
+							styleClass="ui-button-flat p-mr-2" style="width: 6rem" />
+						<p:commandButton
+							actionListener="#{indexController.alterarUsuarioLogado}"
+							type="button" value="Yes" style="width: 5rem" />
 
+					</f:facet>
+				</p:dialog>
+				
+				
+				
+				<p:dialog header="Faça o upload de sua foto" widgetVar="dlg4"
+					minHeight="40" width="700" showEffect="fade">
+					<h:form id="teste">
+					<section class="inputs">
+
+					<span class="ui-float-label"> <p:inputText required="true"
+							requiredMessage="O nome deve ser informado."
+							value="#{managerUsuarioController.entity.nome}" /> <p:outputLabel
+							for="@previous" value="Nome do usuario" />
+					</span> <span class="ui-float-label"> <p:inputText required="true"
+							requiredMessage="O email deve ser informado."
+							value="#{managerUsuarioController.entity.email}" /> <p:outputLabel
+							for="@previous" value="Email do usuario" />
+
+					</span> <span class="ui-float-label"> <p:inputText
+							disabled="#{managerUsuarioController.entity.id != null}"
+							required="true" requiredMessage="A senha deve ser informada"
+							value="#{managerUsuarioController.entity.senha}" /> <p:outputLabel
+							for="@previous" value="Senha do usuario" />
+
+					</span>
+					<div>
+						<p:commandButton
+							disabled="#{managerUsuarioController.entity.id != null}"
+							process="@form:teste" update="@form:teste"
+							action="#{managerUsuarioController.salvarUsuario}" value="Salvar" />
+						<p:commandButton
+							disabled="#{managerUsuarioController.entity.id == null}"
+							process="@form:teste" update="@form:teste"
+							action="#{managerUsuarioController.alterarUsuario}"
+							value="alterar" />
+						<p:commandButton process="@form:teste" update="@form:teste"
+							action="#{managerUsuarioController.limpar}" value="Limpar" />
+
+						<p:commandButton
+							disabled="#{managerUsuarioController.entity.id == null}"
+							process="@this" update="@form:teste"
+							action="#{managerUsuarioController.excluir}" value="Excluir" />
+					</div>
+				</section>
+				</h:form>
+				</p:dialog>
 
 
 
 			</section>
 		</div>
+
+
 
 	</ui:define>
 </ui:composition>

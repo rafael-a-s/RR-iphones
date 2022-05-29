@@ -1,12 +1,13 @@
 package br.unitins.rriphones.repository;
 
 import java.lang.reflect.ParameterizedType;
-import java.util.ArrayList;
 
 import javax.persistence.EntityManager;
+import javax.persistence.OptimisticLockException;
 
 import br.unitins.rriphones.application.JPAUtil;
 import br.unitins.rriphones.application.RepositoryException;
+import br.unitins.rriphones.application.VersionException;
 import br.unitins.rriphones.model.DefaultEntity;
 
 public class Repository<T extends DefaultEntity> {
@@ -16,21 +17,33 @@ public class Repository<T extends DefaultEntity> {
 		setEntityManager(JPAUtil.getEntityManager());
 		}
 	
-	public void save(T entity) throws RepositoryException{
+	public T save(T entity) throws RepositoryException, VersionException{
 		try {
-		getEntityManager().getTransaction().begin();
-		getEntityManager().merge(entity);
-		getEntityManager().getTransaction().commit();
-		}catch(Exception e){
-			System.out.println("Problema ao salvar.");
+			getEntityManager().getTransaction().begin();
+			entity = getEntityManager().merge(entity);
+			getEntityManager().getTransaction().commit();
+			return entity;
+		} catch (OptimisticLockException e) {
+			// excecao do @version
+			System.out.println("Problema com o controle de concorrencia.");
 			e.printStackTrace();
 			try {
-			getEntityManager().getTransaction().rollback();
-			}catch(Exception el) {
-				el.printStackTrace();
+				getEntityManager().getTransaction().rollback();
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+			throw new VersionException("As informa��es est�o antigas, d� um refresh.");			
+		} catch (Exception e) {
+			System.out.println("Problema ao executar o save.");
+			e.printStackTrace();
+			try {
+				getEntityManager().getTransaction().rollback();
+			} catch (Exception e1) {
+				e1.printStackTrace();
 			}
 			throw new RepositoryException("Problema ao salvar.");
 		}
+
 	}
 	public void save(T... entitys) throws RepositoryException {
 		try {

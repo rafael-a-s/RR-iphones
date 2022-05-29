@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+	<title>Gerenciador de Iphone</title>
+
+
+	<link href="resources/css/managerUsuario.css" rel="stylesheet"
+		type="text/css" />
+	<link href="resources/css/managerIphone.css" rel="stylesheet"
+		type="text/css" />
+	<link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+		rel="stylesheet" />
+</h:head>
+<ui:composition template="/manager.xhtml">
+	<ui:define name="manager-template">
+	<h:form>
+		<div id="iphone-content">
+			<div class="iphone">
+				<h1>Cadastro de Iphone</h1>
+				<p:inputText required="true"
+					requiredMessage="Por favor informe o valor do produto."
+					value="#{managerIphoneController.entity.preco}"
+					placeholder="Preço do produto" style="width:311px;" />
+				<p:selectOneMenu id="option" style="width:311px;"
+					value="#{managerIphoneController.entity.cor}">
+					<f:selectItem itemLabel="Selecione uma cor" />
+					<f:selectItems var="obj"
+						value="#{managerIphoneController.corEnum}"
+						itemLabel="#{obj.nomeCor}" />
+					<f:facet name="footer">
+						<p:divider styleClass="p-mt-0" />
+						<h:outputText value="#{managerIphoneController.numeroDeCores} Cores" style="font-weight:bold;" />
+					</f:facet>
+				</p:selectOneMenu>
+				<p:inputTextarea placeholder="Descrição do produto" rows="5"
+					cols="30" counter="display" maxlength="500"
+					counterTemplate="{0} caracteres restantes" autoResize="true"
+					value="#{managerIphoneController.entity.descricao}" />
+				<h:outputText id="display" class="p-d-block" />
+			</div>
+			
+			
+			
+			<div class="modelo">
+			
+				<h1>Modelo</h1>
+				<section>
+					
+					<p:autoComplete 
+		                	value="#{managerIphoneController.entity.modelo}"
+		                	var="modelo"
+		                	itemLabel="#{modelo.modeloLabel}"
+		                	itemValue="#{modelo}"
+		                    completeMethod="#{managerIphoneController.completeEstado}" 
+		                    forceSelection="true"
+		                    maxResults="3"
+		                    placeholder="Escolha um modelo"
+		                    moreText="... mais resultados"
+		                    scrollHeight="250"/>
+						
+					<p:commandButton icon="pi pi-plus"
+						onclick="PF('dlg1').show()"
+						type="button"   
+						/>
+					
+					<p:commandButton icon="pi pi-pencil" styleClass="ui-button-warning"
+						actionListener="#{managerIphoneController.abrirModeloListing}"
+						process="@this">
+						<p:ajax event="dialogReturn"
+							listener="#{managerIphoneController.obterModeloListing}"
+							update="@form" />
+					</p:commandButton>
+					
+				</section>
+				<section>
+					<h:panelGrid  columns="1" style="margin-bottom: 10px">
+						<p:inputText placeholder="Quantidade" id="txt" value="#{managerIphoneController.entity.estoque.quantidade}" style="width: 265px;" />
+						<p:slider for="txt" range="false" />
+					</h:panelGrid>
+				</section>
+			
+			</div>
+			
+			
+			
+			
+			<div class="foto">
+				<h1>Faça upload</h1>
+				<p:commandButton value="Adicionar imagem" type="button"
+					icon="pi pi-external-link" onclick="PF('dlg3').show()" />
+			</div>
+			<div class="buttons">
+				<p:commandButton
+					disabled="#{managerUsuarioController.entity.id != null}"
+					action="#{managerUsuarioController.salvarUsuario}" value="Salvar" />
+				<p:commandButton
+					disabled="#{managerUsuarioController.entity.id == null}"
+					action="#{managerUsuarioController.alterarUsuario}" value="alterar" />
+				<p:commandButton action="#{managerUsuarioController.limpar}"
+					value="Limpar" />
+
+				<p:commandButton
+					disabled="#{managerUsuarioController.entity.id == null}"
+					action="#{managerUsuarioController.excluir}" value="Excluir" />
+			</div>
+		</div>
+	</h:form>
+
+		<p:dialog header="Adicione um modelo" widgetVar="dlg1" minHeight="40" width="350" showEffect="fade">
+		<h:form>
+			<p:inputText placeholder="Digite o modelo" value="#{managerIphoneController.entity.modelo.modeloLabel}"/>
+			<p:commandButton 
+			value="Salvar"
+			action="#{managerIphoneController.salvarModelo}"
+			onclick="PF('dlg1').close()"
+			style="margin-top: 15px;"/>
+		</h:form>
+		</p:dialog>
+
+
+		<p:dialog header="Faça o upload de sua foto" widgetVar="dlg3"
+			minHeight="40" width="350" showEffect="fade">
+			<h:form enctype="multipart/form-data">
+				<p:fileUpload id="fileUpload"
+					listener="#{managerIphoneController.upload}" mode="advanced"
+					update="fileUpload @form" label="Selecione uma foto ..."
+					global="false">
+				</p:fileUpload>
+				<p:growl id="messages" showDetail="true" />
+			</h:form>
+			<f:facet name="footer">
+
+				<p:commandButton type="button" value="No"
+					styleClass="ui-button-flat p-mr-2" style="width: 6rem" />
+				<p:commandButton actionListener="#{managerIphoneController.salvar}"
+					type="button" value="Yes" style="width: 5rem" />
+
+			</f:facet>
+		</p:dialog>
+
+	</ui:define>
+
+</ui:composition>
+
+</html>

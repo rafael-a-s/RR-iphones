@@ -10,7 +10,7 @@ public class Estoque extends DefaultEntity implements Serializable {
 	
 	
 	private static final long serialVersionUID = 1L;
-	@Column(length = 4)
+	@Column(length = 100)
 	private Integer quantidade;
 	@Column
 	private Date dataEntrada;
@@ -20,6 +20,13 @@ public class Estoque extends DefaultEntity implements Serializable {
 		
 	}
 	
+	public Estoque(Integer quantidade, Date dataEntrada, Boolean inStok) {
+		super();
+		this.quantidade = quantidade;
+		this.dataEntrada = dataEntrada;
+		this.inStok = inStok;
+	}
+
 	@Override
 	public String toString() {
 		return "Estoque [quantidade=" + quantidade + ", dataEntrada=" + dataEntrada + ", inStok=" + inStok + "]";

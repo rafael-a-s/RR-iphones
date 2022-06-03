@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+	<title>Compra</title>
+
+
+	<link href="resources/css/profile.css" rel="stylesheet" type="text/css" />
+	<link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+		rel="stylesheet" />
+</h:head>
+<ui:composition template="/index.xhtml">
+	<ui:define name="index-template">
+		<div id="carrinho-container">
+			<div class="product card">
+
+				<p:dataScroller value="#{carrinhoController.listItensCarrinho}" var="obj"
+					chunkSize="10" mode="inline" scrollHeight="500">
+					<f:facet name="header">
+                Scroll Down to Load More Products
+            </f:facet>
+
+					<div class="product">
+						<div class="product-list-item p-p-5">
+							<img src="img-iphone?nome=#{obj.iphone.id}.png" />
+							<div class="product-list-detail">
+								<div class="product-name">#{obj.iphone.modelo.modeloLabel}</div>
+								<div class="product-description">#{obj.iphone.descricao}</div>
+								<span>#{obj.quantidade}</span>
+							
+							</div>
+							<div class="product-list-action">
+								<h:outputText value="#{obj.valor}"
+									styleClass="product-price">
+									<f:convertNumber currencySymbol="$" type="currency" />
+								</h:outputText>
+								<p:commandButton actionListener="#{carrinhoController.remover((obj))}" value="Remover" icon="pi pi-shopping-cart">
+								</p:commandButton>
+								
+							</div>
+						</div>
+					</div>
+				</p:dataScroller>
+
+			</div>
+		</div>
+
+
+
+	</ui:define>
+</ui:composition>
+
+</html>

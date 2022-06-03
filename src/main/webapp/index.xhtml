@@ -11,12 +11,16 @@
 	<link href="resources/css/index.css" rel="stylesheet" type="text/css" />
 	<link href="https://fonts.googleapis.com/css2?family=Material+Icons"
 		rel="stylesheet" />
+		
+<link rel="stylesheet" href="https://unpkg.com/primeflex@3.1.2/primeflex.css"/>
+            
+		
 	<link href="resources/css/products.css" rel="stylesheet"
 		type="text/css" />
 	<link href="resources/css/details.css" rel="stylesheet" type="text/css" />
 	<link href="resources/css/purchase.css" rel="stylesheet" type="text/css" />
 	<link href="resources/css/profile.css" rel="stylesheet" type="text/css" />
-
+<link rel="stylesheet" href="https://unpkg.com/primeflex/themes/saga-blue.css"/>
 </h:head>
 <h:body>
 	<h:form>
@@ -47,7 +51,7 @@
 				<h:commandLink>
 				<span class="material-icons"> shopping_cart </span>
 				</h:commandLink>
-				<span id="cont-itens-car">0</span>
+				<span id="cont-itens-car">#{productsController.contador}</span>
 			</h:outputLabel>
 
 		</nav>

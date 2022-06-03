@@ -46,7 +46,7 @@ public class ManagerIphoneController extends Controller<Iphone> implements Seria
 		super.salvarSemLimpar();
 		if (getImagem() != null) {
 			// salvando a imagem
-			if (! Util.saveImageUsuario(getImagem(), "png", getEntity().getId())) {
+			if (! Util.saveImageIphone(getImagem(), "png", getEntity().getId())) {
 				Util.addErrorMessage("Erro ao salvar. N�o foi poss�vel salvar a imagem do usu�rio.");
 				return;
 			}
@@ -61,7 +61,7 @@ public class ManagerIphoneController extends Controller<Iphone> implements Seria
 		// caso exista uma imagem
 		if (getImagem() != null) {
 			// salvando a imagem
-			if (! Util.saveImageUsuario(getImagem(), "png", getEntity().getId())) {
+			if (! Util.saveImageIphone(getImagem(), "png", getEntity().getId())) {
 				Util.addErrorMessage("Erro ao salvar. N�o foi poss�vel salvar a imagem do usu�rio.");
 				return;
 			}
@@ -125,7 +125,7 @@ public class ManagerIphoneController extends Controller<Iphone> implements Seria
 				e.printStackTrace();
 			}
 			Util.addInfoMessage("Upload realizado com sucesso.");
-			salvar();
+			
 		} else {
 			Util.addErrorMessage("O tipo da image deve ser png.");
 		}

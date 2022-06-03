@@ -21,7 +21,7 @@ public class IndexController extends Controller<Usuario> implements Serializable
 
 	private static final long serialVersionUID = 1L;
 	private InputStream fotoInputStream = null;
-
+	
 	public IndexController() {
 		super(new UsuarioRepository());
 		entity = (Usuario) Session.getInstance().get("UsuarioLogado");

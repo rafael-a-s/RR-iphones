@@ -13,7 +13,8 @@
 		<class>br.unitins.rriphones.model.Iphone</class>
 		<class>br.unitins.rriphones.model.Modelo</class>
 		<class>br.unitins.rriphones.model.Estoque</class>
-		
+		<class>br.unitins.rriphones.model.Venda</class>
+		<class>br.unitins.rriphones.model.ItemVenda</class>
 
 		<properties>
 			<!-- DB Driver -->

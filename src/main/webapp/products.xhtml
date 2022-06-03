@@ -14,78 +14,45 @@
 </h:head>
 <ui:composition template="/index.xhtml">
 	<ui:define name="index-template">
-		<h:form>
-			
+<div class="product card">
+		<p:dataView var="obj" value="#{productsController.listIphone}"
+			rows="4"  paginator="true" 
+			paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+			gridIcon="pi pi-th-large" listIcon="pi pi-bars" layout="grid"
+			gridRowStyleClass="p-lg-6 p-xl-4" flex="false">
+
+			<p:dataViewGridItem>
 				<div class="container-card">
 					<h:commandLink>
-					<h:graphicImage
-						url="https://imgs.pontofrio.com.br/55014764/1xg.jpg?imwidth=292" />
+						
+						<img src="img-iphone?nome=#{obj.id}.png" />
 					</h:commandLink>
 					<section class="details">
-						<p>iPhone 11 Apple 64GB Preto, Tela de 6,1”, Câmera Dupla de
-							12MP, iOS</p>
+						<p>#{obj.modelo.modeloLabel}, #{obj.descricao}</p>
+						
 					</section>
 					<section class="prices">
 						<p:outputLabel class="de">De: R$ 4.599,00</p:outputLabel>
 						<p>
-							Por:<span> R$ 159,90</span>
+							Por:<span> #{obj.preco}</span>
 						</p>
 						<p>Em até 3x de R$53,30 sem juros</p>
+						
+						<p:outputLabel rendered="#{productsController.inStok((obj.id)) == true}"><span>Temos estoque !</span></p:outputLabel>
+						<p:outputLabel rendered="#{productsController.inStok((obj.id)) == false}"><span>Estamos sem estoque no momento !</span></p:outputLabel>
 					</section>
 					<section class="button-car">
-						<h:commandLink>
+						<h:commandLink actionListener="#{productsController.adicionarAoCarrinho((obj))}">
 							<span class="material-icons">add_shopping_cart</span>
 						</h:commandLink>
 					</section>
 				</div>
-				
-				
-				<div class="container-card">
-					<h:commandLink>
-					<h:graphicImage
-						url="https://imgs.pontofrio.com.br/55014764/1xg.jpg?imwidth=292" />
-					</h:commandLink>
-					<section class="details">
-						<p>iPhone 11 Apple 64GB Preto, Tela de 6,1”, Câmera Dupla de
-							12MP, iOS</p>
-					</section>
-					<section class="prices">
-						<p:outputLabel class="de">De: R$ 4.599,00</p:outputLabel>
-						<p>
-							Por:<span> R$ 159,90</span>
-						</p>
-						<p>Em até 3x de R$53,30 sem juros</p>
-					</section>
-					<section class="button-car">
-						<h:commandLink>
-							<span class="material-icons">add_shopping_cart</span>
-						</h:commandLink>
-					</section>
-				</div>
-				
-				<div class="container-card">
-					<h:commandLink>
-					<h:graphicImage
-						url="https://imgs.pontofrio.com.br/55014764/1xg.jpg?imwidth=292" />
-					</h:commandLink>
-					<section class="details">
-						<p>iPhone 11 Apple 64GB Preto, Tela de 6,1”, Câmera Dupla de
-							12MP, iOS</p>
-					</section>
-					<section class="prices">
-						<p:outputLabel class="de">De: R$ 4.599,00</p:outputLabel>
-						<p>
-							Por:<span> R$ 159,90</span>
-						</p>
-						<p>Em até 3x de R$53,30 sem juros</p>
-					</section>
-					<section class="button-car">
-						<h:commandLink>
-							<span class="material-icons">add_shopping_cart</span>
-						</h:commandLink>
-					</section>
-				</div>
-		</h:form>
+
+			</p:dataViewGridItem>
+
+		</p:dataView>
+</div>
+
 	</ui:define>
 </ui:composition>
 

@@ -11,86 +11,93 @@
 	<link href="resources/css/index.css" rel="stylesheet" type="text/css" />
 	<link href="https://fonts.googleapis.com/css2?family=Material+Icons"
 		rel="stylesheet" />
-		
-<link rel="stylesheet" href="https://unpkg.com/primeflex@3.1.2/primeflex.css"/>
-            
-		
+
+	<link rel="stylesheet"
+		href="https://unpkg.com/primeflex@3.1.2/primeflex.css" />
+	<link href="resources/css/pagamento.css" rel="stylesheet"
+		type="text/css" />
+	<link href="resources/css/carrinho.css" rel="stylesheet"
+		type="text/css" />
 	<link href="resources/css/products.css" rel="stylesheet"
 		type="text/css" />
 	<link href="resources/css/details.css" rel="stylesheet" type="text/css" />
-	<link href="resources/css/purchase.css" rel="stylesheet" type="text/css" />
+	<link href="resources/css/purchase.css" rel="stylesheet"
+		type="text/css" />
 	<link href="resources/css/profile.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="https://unpkg.com/primeflex/themes/saga-blue.css"/>
+	<link rel="stylesheet"
+		href="https://unpkg.com/primeflex/themes/saga-blue.css" />
 </h:head>
 <h:body>
 	<h:form>
-	<header id="header">
-		<nav class="nav-bar">
-			<h1>
-				RR<span>Iphones</span>
-			</h1>
-			<h:outputLabel class="search">
-				<h:inputText pt:placeholder="Pesquise" />
-				<h:commandLink>
-					<span class="material-icons"> search </span>
-				</h:commandLink>
+		<header id="header">
+			<nav class="nav-bar">
+				<h1>
+					RR<span>Iphones</span>
+				</h1>
+				<h:outputLabel class="search">
+					<h:inputText pt:placeholder="Pesquise" />
+					<h:commandLink>
+						<span class="material-icons"> search </span>
+					</h:commandLink>
 
-			</h:outputLabel>
-			<h:outputLabel class="user" rendered="#{indexController.entity.id == null}">
-				<span class="material-icons"> person_outline </span>
-				<h:commandLink action="/login/login.xhtml?faces-redirect=true" >Entre ou registre-se</h:commandLink>
+				</h:outputLabel>
+				<h:outputLabel class="user"
+					rendered="#{indexController.entity.id == null}">
+					<span class="material-icons"> person_outline </span>
+					<h:commandLink action="/login/login.xhtml?faces-redirect=true">Entre ou registre-se</h:commandLink>
 
-			</h:outputLabel >
-			<h:outputLabel class="user" rendered="#{indexController.entity.id != null}">
-			<h:commandLink action="profile.xhtml?faces-redirect=true">
-				<span class="material-icons"> person_outline </span>
-			</h:commandLink>
-				<p>Olá, #{indexController.entity.nome} Bem Vindo !</p>
-			</h:outputLabel>
-			<h:outputLabel id="car">
-				<h:commandLink>
-				<span class="material-icons"> shopping_cart </span>
-				</h:commandLink>
-				<span id="cont-itens-car">#{productsController.contador}</span>
-			</h:outputLabel>
+				</h:outputLabel>
+				<h:outputLabel class="user"
+					rendered="#{indexController.entity.id != null}">
+					<h:commandLink action="profile.xhtml?faces-redirect=true">
+						<span class="material-icons"> person_outline </span>
+					</h:commandLink>
+					<p>Olá, #{indexController.entity.nome} Bem Vindo !</p>
+				</h:outputLabel>
+				<h:outputLabel id="car">
+					<h:commandLink action="carrinho.xhtml?faces-redirect=true">
+						<span class="material-icons"> shopping_cart </span>
+					</h:commandLink>
+					<span id="cont-itens-car">#{productsController.contador}</span>
+				</h:outputLabel>
 
-		</nav>
+			</nav>
 
-	</header>
+		</header>
 
 
-	<div id="container">
-		<ui:insert name="index-template">
+		<div id="container">
+			<ui:insert name="index-template">
 
-		</ui:insert>
-	</div>
-
-	<footer>
-		<div class="footer-left">
-			<h1>
-				RR<span>Iphones</span>
-			</h1>
-			<p>©2022-RRIphones</p>
-			<p>Todos os direitos reservados</p>
-		</div>
-		<div class="footer-right">
-			<span> <h:commandLink>
-					<h:graphicImage value="./resources/icons/icons8-whatsapp.svg" />
-				</h:commandLink>
-			</span> <span> <h:commandLink>
-					<h:graphicImage value="./resources/icons/icons8-instagram.svg" />
-				</h:commandLink>
-			</span> <span> <h:commandLink>
-					<h:graphicImage value="./resources/icons/icons8-facebook.svg" />
-				</h:commandLink>
-			</span>
+			</ui:insert>
 		</div>
 
-	</footer>
+		<footer>
+			<div class="footer-left">
+				<h1>
+					RR<span>Iphones</span>
+				</h1>
+				<p>©2022-RRIphones</p>
+				<p>Todos os direitos reservados</p>
+			</div>
+			<div class="footer-right">
+				<span> <h:commandLink>
+						<h:graphicImage value="./resources/icons/icons8-whatsapp.svg" />
+					</h:commandLink>
+				</span> <span> <h:commandLink>
+						<h:graphicImage value="./resources/icons/icons8-instagram.svg" />
+					</h:commandLink>
+				</span> <span> <h:commandLink>
+						<h:graphicImage value="./resources/icons/icons8-facebook.svg" />
+					</h:commandLink>
+				</span>
+			</div>
 
-	<script type="text/javascript" src="./resources/js/index.js" />
+		</footer>
+
+		<script type="text/javascript" src="./resources/js/index.js" />
 
 
-</h:form>
+	</h:form>
 </h:body>
 </html>

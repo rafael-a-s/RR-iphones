@@ -18,8 +18,21 @@
 </h:head>
 <ui:composition template="/manager.xhtml">
 	<ui:define name="manager-template">
-	<h:form>
+		<h:form id="formInputs">
+				<section class="pesquisa" style="margin-top: 1rem;position: absolute;left: 33rem;">
+					<p:commandButton value="Abrir listagem de Iphones"
+						actionListener="#{managerIphoneController.abrirIphoneListing}">
+						<p:ajax event="dialogReturn"
+							listener="#{managerIphoneController.obterIphoneListing}"
+							update="dados" />
+					</p:commandButton>
+
+				</section>
+			</h:form>
+			<h:form id="dados">
 		<div id="iphone-content">
+		
+			
 			<div class="iphone">
 				<h1>Cadastro de Iphone</h1>
 				<p:inputText required="true"
@@ -108,6 +121,7 @@
 					disabled="#{managerUsuarioController.entity.id == null}"
 					action="#{managerUsuarioController.excluir}" value="Excluir" />
 			</div>
+			
 		</div>
 	</h:form>
 

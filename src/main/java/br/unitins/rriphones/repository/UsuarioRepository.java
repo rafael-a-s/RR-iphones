@@ -10,7 +10,12 @@ import br.unitins.rriphones.model.Usuario;
 public class UsuarioRepository extends Repository<Usuario> {
 
 	
-	
+	public void removeCartao(Integer id, Integer idusuario) {
+		StringBuffer jpql = new StringBuffer();
+		jpql.append("DELETE FROM Cartao c WHERE c.id  = :id and c.usuario_fk = :idusuario ");
+		Query query = getEntityManager().createQuery(jpql.toString());
+		query.setParameter("id", id).setParameter("idusuario", idusuario).executeUpdate();
+	}
 	public List<Usuario> findByName(String nome) throws RepositoryException {
 		try {
 			StringBuffer jpql = new StringBuffer();

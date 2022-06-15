@@ -19,6 +19,14 @@ public class IphoneRepository extends Repository<Iphone> {
 		
 		return query.getResultList(); //retornando toda a lista de iphones
 	}
+	public List<Iphone> findByModelo(String modelo) {
+		StringBuffer jpql = new StringBuffer();
+		jpql.append("SELECT i FROM Iphone i WHERE i.modelo.id = i.modelo.id and i.modelo.modeloLabel LIKE :modelo");
+		
+		Query query = getEntityManager().createQuery(jpql.toString());
+		query.setParameter("modelo","%" + modelo + "%");
+		return query.getResultList();
+	}
 	
 	
 

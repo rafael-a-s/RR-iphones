@@ -3,7 +3,11 @@ package br.unitins.rriphones.model;
 import java.io.Serializable;
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Cartao extends DefaultEntity implements Serializable{
@@ -20,7 +24,9 @@ public class Cartao extends DefaultEntity implements Serializable{
 	private String cvv;
 	
 	private String dataValidade;
-	
+	@ManyToOne
+	@JoinColumn(name="usuario_fk", nullable = false)
+	private Usuario usuario;
 	
 	private Funcao funcao;
 	
@@ -86,6 +92,20 @@ public class Cartao extends DefaultEntity implements Serializable{
 
 	public void setFuncao(Funcao funcao) {
 		this.funcao = funcao;
+	}
+
+
+
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+
+
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 

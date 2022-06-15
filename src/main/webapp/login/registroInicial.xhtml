@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+	<title>Login</title>
+	<link href="resources/css/login.css" rel="stylesheet" type="text/css" />
+	<link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+		rel="stylesheet" />
+</h:head>
+<ui:composition template="/login/login.xhtml">
+	<ui:define name="signInOrSignUp">
+		<h:form id="teste">
+			<p:panelGrid columns="2">
+				<h:inputText pt:placeholder="nome Completo"
+					value="#{initialregisterController.entity.nome}" required="true"
+					requiredMessage="O nome deve ser informado.">
+					<f:validateRegex pattern="/[A-Z][a-z]* [A-Z][a-z]*/" />
+				</h:inputText>
+
+				
+
+				<h:commandButton  value="CADASTRAR"
+					action="#{initialregisterController.cadastrar}" />
+			</p:panelGrid>
+		</h:form>
+	</ui:define>
+</ui:composition>
+
+</html>

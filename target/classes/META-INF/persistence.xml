@@ -10,11 +10,14 @@
 		<class>br.unitins.rriphones.model.Endereco</class>
 		<class>br.unitins.rriphones.model.Telefone</class>
 		<class>br.unitins.rriphones.model.Pagamento</class>
+		<class>br.unitins.rriphones.model.CartaoPagamento</class>
+		<class>br.unitins.rriphones.model.PixPagamento</class>
 		<class>br.unitins.rriphones.model.Iphone</class>
 		<class>br.unitins.rriphones.model.Modelo</class>
 		<class>br.unitins.rriphones.model.Estoque</class>
 		<class>br.unitins.rriphones.model.Venda</class>
 		<class>br.unitins.rriphones.model.ItemVenda</class>
+		
 
 		<properties>
 			<!-- DB Driver -->

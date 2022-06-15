@@ -10,6 +10,7 @@
 
 
 	<link href="resources/css/profile.css" rel="stylesheet" type="text/css" />
+	<link href="resources/css/index.css" rel="stylesheet" type="text/css" />
 	<link href="https://fonts.googleapis.com/css2?family=Material+Icons"
 		rel="stylesheet" />
 </h:head>
@@ -91,7 +92,12 @@
 						<p:tab title="Cartões">
 							<p:repeat value="#{indexController.entity.listaCartao}" var="obj">
 								<div id="content-cartao">
-									<div class="tarja-branca"></div>
+									<div class="tarja-branca">
+										<p:commandButton icon="pi pi-times"
+											styleClass="rounded-button ui-button-danger ui-button-outlined"
+											value="Deletar"
+											actionListener="#{indexController.deletarCartao((obj))}" />
+									</div>
 
 									<div class="dados">
 										<div class="numero">
@@ -106,7 +112,8 @@
 
 								</div>
 							</p:repeat>
-
+							<p:commandButton value="Adicionar cartão"
+								onclick="PF('dlg5').show()" />
 						</p:tab>
 
 					</p:tabView>
@@ -131,52 +138,109 @@
 
 					</f:facet>
 				</p:dialog>
-				
-				
-				
-				<p:dialog header="Faça o upload de sua foto" widgetVar="dlg4"
+
+
+
+				<p:dialog header="Atualize seus dados" widgetVar="dlg4"
 					minHeight="40" width="700" showEffect="fade">
 					<h:form id="teste">
-					<section class="inputs">
+						<section class="inputs">
 
-					<span class="ui-float-label"> <p:inputText required="true"
-							requiredMessage="O nome deve ser informado."
-							value="#{managerUsuarioController.entity.nome}" /> <p:outputLabel
-							for="@previous" value="Nome do usuario" />
-					</span> <span class="ui-float-label"> <p:inputText required="true"
-							requiredMessage="O email deve ser informado."
-							value="#{managerUsuarioController.entity.email}" /> <p:outputLabel
-							for="@previous" value="Email do usuario" />
+							<p:inputText required="true" style="width:300px;"
+								requiredMessage="O nome deve ser informado."
+								value="#{indexController.entity.nome}" />
+							<p:inputText required="true" placeholder="Cpf"
+								style="width:300px;"
+								rendered="#{indexController.entity.cpf == null}"
+								requiredMessage="O CPF deve ser informado."
+								value="#{indexController.entity.cpf}" />
 
-					</span> <span class="ui-float-label"> <p:inputText
-							disabled="#{managerUsuarioController.entity.id != null}"
-							required="true" requiredMessage="A senha deve ser informada"
-							value="#{managerUsuarioController.entity.senha}" /> <p:outputLabel
-							for="@previous" value="Senha do usuario" />
+							<p:panelGrid columns="2">
+								<p:inputText required="true" placeholder="ddd"
+									requiredMessage="Informe o DDD."
+									value="#{indexController.entity.telefone.codigoArea}"
+									style="width:100px;" />
+								<p:inputText required="true" placeholder="Numero"
+									requiredMessage="Informe seu numero."
+									value="#{indexController.entity.telefone.numero}" />
+							</p:panelGrid>
 
-					</span>
-					<div>
-						<p:commandButton
-							disabled="#{managerUsuarioController.entity.id != null}"
-							process="@form:teste" update="@form:teste"
-							action="#{managerUsuarioController.salvarUsuario}" value="Salvar" />
-						<p:commandButton
-							disabled="#{managerUsuarioController.entity.id == null}"
-							process="@form:teste" update="@form:teste"
-							action="#{managerUsuarioController.alterarUsuario}"
-							value="alterar" />
-						<p:commandButton process="@form:teste" update="@form:teste"
-							action="#{managerUsuarioController.limpar}" value="Limpar" />
+							<div>
 
-						<p:commandButton
-							disabled="#{managerUsuarioController.entity.id == null}"
-							process="@this" update="@form:teste"
-							action="#{managerUsuarioController.excluir}" value="Excluir" />
-					</div>
-				</section>
-				</h:form>
+								<p:commandButton disabled="#{indexController.entity.id == null}"
+									process="@form:teste" update="@form:teste"
+									action="#{indexController.alterarUsuarioLogado}"
+									value="Atualizar" />
+							</div>
+						</section>
+					</h:form>
 				</p:dialog>
 
+				<p:dialog header="Adicione seu cartão" widgetVar="dlg5"
+					minHeight="40" width="700" showEffect="fade">
+					<h:form id="cadatroCartao">
+						<div id="content-cartao-cadastro">
+							<div class="tarja-branca"></div>
+
+							<div class="dados">
+								<div class="numero">
+									<p>
+										<p:selectOneMenu id="option"
+											value="#{indexController.cartao.funcao}">
+											<f:selectItem itemLabel="Função" />
+											<f:selectItems var="obj"
+												value="#{indexController.funcaoCartao}"
+												itemLabel="#{obj.funcao}" />
+
+										</p:selectOneMenu>
+										<p:inputText style="width: 17rem; margin-bottom: 1rem;"
+											value="#{indexController.cartao.numeroCartao}"
+											placeholder="Numero do cartão" />
+									</p>
+								</div>
+								<div class="sub-dados">
+									<span><p:inputText
+											value="#{indexController.cartao.nomeCartao}"
+											placeholder="Nome do cartão" /></span> <span><p:inputText
+											style="width: 6rem;"
+											value="#{indexController.cartao.dataValidade}"
+											placeholder="Mês/Ano" /></span> <span><p:inputText
+											style="width: 4rem; " value="#{indexController.cartao.cvv}"
+											placeholder="CVV" /></span>
+								</div>
+
+							</div>
+
+						</div>
+						<p:commandButton process="@form:cadatroCartao"
+							update="@form:cadatroCartao" value="Cadastrar"
+							action="#{indexController.adicionarCartao}" />
+
+					</h:form>
+				</p:dialog>
+
+				<p:dialog header="Adicione seu cartão" widgetVar="dlg6"
+					minHeight="40" width="700" showEffect="fade">
+					<h:form id="cadatroEndereco">
+						<div id="content-end">
+							<div>
+
+								<section>
+									<p>#{obj.cep}, #{obj.endereco}</p>
+									<br />
+									<p>#{obj.numero}, #{obj.complemento}</p>
+								</section>
+								<p:commandButton value="Alterar Endereço" />
+							</div>
+						</div>
+
+
+						<p:commandButton process="@form:cadatroCartao"
+							update="@form:cadatroCartao" value="Cadastrar"
+							action="#{indexController.adicionarCartao}" />
+
+					</h:form>
+				</p:dialog>
 
 
 			</section>

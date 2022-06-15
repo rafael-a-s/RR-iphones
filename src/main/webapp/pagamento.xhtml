@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+	<title>Finalizar Pedido</title>
+
+
+	<link href="resources/css/pagamento.css" rel="stylesheet"
+		type="text/css" />
+	<link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+		rel="stylesheet" />
+</h:head>
+<h:body>
+	<div id="body-container">
+		<div id="content-pagamento">
+			<h:form >
+			
+				<div class="dados">
+					<section id="forma-pagamento">
+						<h1>Forma de Pagamento</h1>
+						<p:commandLink value="Pix"
+							action="PagamentoPix.xhtml?faces-redirect=true" process="@form"
+							update="@form" />
+						<p:commandLink value="Cartão de Débito/Crédito"
+							action="pagamento.xhtml?faces-redirect=true" />
+					</section>
+					<ui:insert name="pagamento-template">
+
+
+						<section id="select-cartao">
+							<strong>Catões Salvos</strong>
+							<p:selectOneMenu 
+								value="#{pagamentoController.cartao.idCartao}">
+								<f:selectItem itemLabel="Selecione seu cartão" />
+								<f:selectItems 
+									value="#{pagamentoController.entity.usuario.listaCartao}"
+									var="obj"  itemValue="#{obj.id}"
+									itemLabel="Visa (#{obj.numeroCartao}) #{obj.dataValidade}" />
+							</p:selectOneMenu>
+
+						</section>
+
+						<section id="cpf-cnpj">
+							<p>CPF ou CNPJ do cartão</p>
+							<p:inputText value="#{pagamentoController.cartao.cpfPagador}" />
+						</section>
+
+						
+
+						<section id="parcelas">
+							<strong>Parcela</strong>
+							<p:selectOneMenu id="parcelas"
+								value="#{pagamentoController.cartao.numeroParcelas}" >
+								
+								<f:selectItem itemLabel="Parcele em até" />
+								<f:selectItems var="obj" itemValue="#{obj.parcelas}"
+									value="#{pagamentoController.listParcelas}"
+									itemLabel="Em #{obj.parcelas} vezes, de R$ #{obj.valorParcela}" />
+							</p:selectOneMenu>
+								<div id="total">
+									<label>Total R$
+										#{pagamentoController.entity.valorTotal}</label>
+								</div>
+						</section>
+
+						<section>
+							<p:commandButton value="Fazer pedido" 
+							
+								action="#{pagamentoController.pagamentoComCartao}"
+								 />
+						</section>
+					</ui:insert>
+				</div>
+			</h:form>
+		</div>
+	</div>
+</h:body>
+
+</html>

@@ -3,7 +3,6 @@ package br.unitins.rriphones.controller;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -18,11 +17,12 @@ import org.primefaces.model.file.UploadedFile;
 import br.unitins.rriphones.application.RepositoryException;
 import br.unitins.rriphones.application.Util;
 import br.unitins.rriphones.application.VersionException;
+import br.unitins.rriphones.controller.listing.IphoneListing;
 import br.unitins.rriphones.controller.listing.ModeloListing;
 import br.unitins.rriphones.model.Cor;
 import br.unitins.rriphones.model.Iphone;
 import br.unitins.rriphones.model.Modelo;
-import br.unitins.rriphones.model.Telefone;
+import br.unitins.rriphones.model.Usuario;
 import br.unitins.rriphones.repository.IphoneRepository;
 import br.unitins.rriphones.repository.ModeloRepository;
 
@@ -40,6 +40,14 @@ public class ManagerIphoneController extends Controller<Iphone> implements Seria
 	public ManagerIphoneController() {
 		super(new IphoneRepository());
 	}
+	public void abrirIphoneListing() { //abir a lista de usuario
+		IphoneListing listing = new IphoneListing();
+		listing.open();
+	}
+	public void obterIphoneListing(SelectEvent<Iphone> event) {
+		setEntity(event.getObject());
+	}
+	
 	@Override
 	public void salvar() {
 		finlizarDadosEstoque();

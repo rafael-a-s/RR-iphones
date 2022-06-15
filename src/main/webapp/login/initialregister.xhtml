@@ -7,10 +7,13 @@
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
 	<title>Login</title>
+	<link href="resources/css/initialRegister.css" rel="stylesheet"
+		type="text/css" />
 	<link href="resources/css/login.css" rel="stylesheet" type="text/css" />
 	<link href="https://fonts.googleapis.com/css2?family=Material+Icons"
 		rel="stylesheet" />
 </h:head>
+
 <ui:composition template="/login/login.xhtml">
 	<ui:define name="signInOrSignUp">
 
@@ -25,7 +28,7 @@
 					<p:inputText pt:placeholder="nome Completo"
 						value="#{initialregisterController.entity.nome}" required="true"
 						requiredMessage="O nome deve ser informado.">
-						<f:validateRegex pattern="/[A-Z][a-z]* [A-Z][a-z]*/" />
+						
 					</p:inputText>
 				</div>
 				<div>
@@ -83,7 +86,7 @@
 						value="#{initialregisterController.comparePassword}" />
 				</div>
 				<div class="button">
-					<h:commandButton class="btn-login" value="CADASTRAR" action="#{initialregisterController.salvar}" />
+					<h:commandButton class="btn-login" value="CADASTRAR" action="#{initialregisterController.cadastrar}" />
 				</div>
 		</h:form>
 		<h:form>

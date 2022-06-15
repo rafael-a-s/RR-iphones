@@ -9,7 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 @Entity
-public class Iphone extends DefaultEntity implements Serializable{
+public class Iphone extends DefaultEntity implements Serializable, Cloneable{
 	
 	private static final long serialVersionUID = 1L;
 	@Column(length = 10)
@@ -26,6 +26,12 @@ public class Iphone extends DefaultEntity implements Serializable{
 	
 	public Iphone() {
 		
+	}
+	
+	@Override
+	public Iphone clone() throws CloneNotSupportedException {
+		
+		return ( Iphone ) super.clone();
 	}
 	
 	@Override

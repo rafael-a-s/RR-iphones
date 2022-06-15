@@ -4,10 +4,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.faces.context.FacesContext;
+import javax.faces.context.Flash;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
 import br.unitins.rriphones.application.Session;
+import br.unitins.rriphones.application.Util;
 import br.unitins.rriphones.model.Iphone;
 import br.unitins.rriphones.model.ItemVenda;
 import br.unitins.rriphones.repository.IphoneRepository;
@@ -24,8 +27,24 @@ public class ProductsController extends Controller<Iphone> implements Serializab
 
 	public ProductsController() {
 		super(new IphoneRepository());
-	}
+		
+		if (listIphone == null) {
+			IphoneRepository repo = new IphoneRepository();
+			listIphone = repo.obterTodos();
 
+			if (listIphone == null)
+				listIphone = new ArrayList<Iphone>();
+		}
+		setContador((Integer) Session.getInstance().get("contadorCarrinho"));
+	}
+	//este metodo sobe um obj de iphone com flash
+	//que e usado na pagina de detalhes
+	public void verDetalhesIphone(Iphone iphone) {
+		 Flash flash = FacesContext.getCurrentInstance().getExternalContext().getFlash();
+		 flash.put("iphoneFlash", iphone);
+		 flash.keep("iphoneFlash");
+		 Util.redirect("details.xhtml");
+	}
 	// Metodo para add produto ao carrinho
 	public void adicionarAoCarrinho(Iphone iphone) {
 		incrementador();
@@ -92,13 +111,7 @@ public class ProductsController extends Controller<Iphone> implements Serializab
 	}
 
 	public List<Iphone> getListIphone() {
-		if (listIphone == null) {
-			IphoneRepository repo = new IphoneRepository();
-			listIphone = repo.obterTodos();
-
-			if (listIphone == null)
-				listIphone = new ArrayList<Iphone>();
-		}
+		
 		return listIphone;
 	}
 
@@ -107,8 +120,7 @@ public class ProductsController extends Controller<Iphone> implements Serializab
 	}
 
 	public Integer getContador() {
-		if(contador == null)
-			contador = (Integer) Session.getInstance().get("contadorCarrinho");
+		
 		if(contador == null)
 			contador = 0;
 		return contador;

@@ -5,6 +5,8 @@ import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Endereco extends DefaultEntity implements Serializable{
@@ -20,7 +22,9 @@ public class Endereco extends DefaultEntity implements Serializable{
 	private Integer numero;
 	@Column(length = 100)
 	private String complemento;
-	
+	@ManyToOne
+	@JoinColumn(name="endereco_fk", nullable = false)
+	private Usuario usuario;
 	public Endereco() { // construtor de Endereço
 		
 	}

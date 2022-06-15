@@ -8,10 +8,12 @@ import java.io.InputStream;
 import javax.faces.application.FacesMessage;
 import javax.faces.application.FacesMessage.Severity;
 import javax.faces.context.FacesContext;
+import javax.faces.context.Flash;
 import javax.imageio.ImageIO;
 
 import org.apache.commons.codec.digest.DigestUtils;
 
+import br.unitins.rriphones.model.Iphone;
 import br.unitins.rriphones.model.Usuario;
 import br.unitins.rriphones.servlet.ImgIphoneServlet;
 import br.unitins.rriphones.servlet.ImgUsuarioServlet;

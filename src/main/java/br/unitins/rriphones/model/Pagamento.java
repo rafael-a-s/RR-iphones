@@ -1,6 +1,7 @@
 package br.unitins.rriphones.model;
 
-import java.sql.Date;
+
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,17 +11,17 @@ import javax.persistence.InheritanceType;
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Pagamento extends DefaultEntity {
 	@Column
-	private Date dataHoraPagamento;
-	
-	
+	private LocalDateTime dataHoraPagamento;
 
-	public Date getDataHoraPagamento() {
+	public LocalDateTime getDataHoraPagamento() {
 		return dataHoraPagamento;
 	}
 
-	public void setDataHoraPagamento(Date dataHoraPagamento) {
+	public void setDataHoraPagamento(LocalDateTime dataHoraPagamento) {
 		this.dataHoraPagamento = dataHoraPagamento;
 	}
+
+	
 	
 	
 	

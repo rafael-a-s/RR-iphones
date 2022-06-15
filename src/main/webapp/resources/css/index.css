@@ -124,7 +124,7 @@ div#container{
   height: 14rem;
   border-radius: 1rem;
   background-color: rgb(143, 13, 182);
-
+  margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
   gap: 5rem;

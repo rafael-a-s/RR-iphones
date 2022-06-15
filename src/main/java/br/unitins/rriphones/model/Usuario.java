@@ -8,9 +8,13 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+
 @Entity
 public class Usuario extends DefaultEntity implements Serializable {
 	//ideia: cliente fazer primeiro um cadaastro bem basico
@@ -32,21 +36,24 @@ public class Usuario extends DefaultEntity implements Serializable {
 	
 	@Column
 	private String sexo;
+	@Enumerated(EnumType.ORDINAL)
+	private Permissao permissao;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn
 	private Telefone telefone;
 	
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(targetEntity = br.unitins.rriphones.model.Cartao.class, cascade = CascadeType.ALL, mappedBy = "usuario", orphanRemoval = true )
 	private List<Cartao> listaCartao;
 	
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(targetEntity = br.unitins.rriphones.model.Endereco.class, cascade = CascadeType.ALL, mappedBy = "usuario", orphanRemoval = true )
 	private List<Endereco> listaEndereco;
 	
 	//construtor  de usuario
 	public Usuario() {
 		
 	}
+	
 	
 		
 	//contrutor para teste no pacger de teste
@@ -140,6 +147,18 @@ public class Usuario extends DefaultEntity implements Serializable {
 
 	public void setSexo(String sexo) {
 		this.sexo = sexo;
+	}
+
+
+
+	public Permissao getPermissao() {
+		return permissao;
+	}
+
+
+
+	public void setPermissao(Permissao permissao) {
+		this.permissao = permissao;
 	}
 
 	

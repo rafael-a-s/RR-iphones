@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+	<title>Compra</title>
+
+
+	<link href="resources/css/pagamento.css" rel="stylesheet"
+		type="text/css" />
+	<link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+		rel="stylesheet" />
+</h:head>
+<ui:composition template="/pagamento.xhtml">
+	<ui:define name="pagamento-template">
+		<section>
+			<h1>Escanei o Qr Code Pix</h1>
+			<h:graphicImage value="./resources/image/qrcode-pix.png" />
+
+		</section>
+		<section>
+			<p:commandButton type="button" value="Fazer pedido"  action="#{pagamentoController.pagamentoComPix}"
+				styleClass="ui-button-success" />
+		</section>
+	</ui:define>
+</ui:composition>
+</html>

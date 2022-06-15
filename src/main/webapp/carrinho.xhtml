@@ -9,43 +9,67 @@
 	<title>Compra</title>
 
 
-	<link href="resources/css/profile.css" rel="stylesheet" type="text/css" />
+	<link href="resources/css/carrinho.css" rel="stylesheet"
+		type="text/css" />
 	<link href="https://fonts.googleapis.com/css2?family=Material+Icons"
 		rel="stylesheet" />
 </h:head>
 <ui:composition template="/index.xhtml">
 	<ui:define name="index-template">
 		<div id="carrinho-container">
-			<div class="product card">
 
-				<p:dataScroller value="#{carrinhoController.listItensCarrinho}" var="obj"
-					chunkSize="10" mode="inline" scrollHeight="500">
-					<f:facet name="header">
-                Scroll Down to Load More Products
+
+			<p:dataScroller value="#{carrinhoController.listItensCarrinho}"
+				var="obj" chunkSize="10" mode="inline" scrollHeight="500">
+				<f:facet name="header">
+               Agora é só finalizar sua compra!
             </f:facet>
+				<div id="itens-carrinho">
+					<section>
+						<img src="img-iphone?nome=#{obj.iphone.id}.png" />
+					</section>
+					<section>
+						<p>#{obj.iphone.modelo.modeloLabel}, #{obj.iphone.descricao}</p>
 
-					<div class="product">
-						<div class="product-list-item p-p-5">
-							<img src="img-iphone?nome=#{obj.iphone.id}.png" />
-							<div class="product-list-detail">
-								<div class="product-name">#{obj.iphone.modelo.modeloLabel}</div>
-								<div class="product-description">#{obj.iphone.descricao}</div>
-								<span>#{obj.quantidade}</span>
-							
-							</div>
-							<div class="product-list-action">
-								<h:outputText value="#{obj.valor}"
-									styleClass="product-price">
-									<f:convertNumber currencySymbol="$" type="currency" />
-								</h:outputText>
-								<p:commandButton actionListener="#{carrinhoController.remover((obj))}" value="Remover" icon="pi pi-shopping-cart">
-								</p:commandButton>
-								
-							</div>
-						</div>
-					</div>
-				</p:dataScroller>
+					</section>
+					<section>
+						<span>#{obj.quantidade}</span>
+					</section>
+					<section>
+						<h:outputText value="#{obj.valor}" styleClass="product-price">
+							<f:convertNumber currencySymbol="R$" type="currency" />
+						</h:outputText>
+					</section>
+					<section>
+						<p:commandButton styleClass="ui-button-danger"
+							actionListener="#{carrinhoController.remover((obj))}"
+							value="Remover" icon="pi pi-shopping-cart">
+						</p:commandButton>
+					</section>
+				</div>
+			</p:dataScroller>
+			<div id="carrinho-footer">
+				<section>
+					<p:repeat value="#{indexController.entity.listaEndereco}" var="obj">
+						<div id="content-end">
+										<div>
 
+											<section>
+												<p>#{obj.cep}, #{obj.endereco}</p>
+												<br />
+												<p>#{obj.numero}, #{obj.complemento}</p>
+											</section>
+											<p:commandButton styleClass="pi pi-check" value="selecionar endereço" />
+										</div>
+									</div>
+					</p:repeat>
+
+				</section>
+				<p:commandButton
+					actionListener="#{carrinhoController.irParaPagamento}"
+					value="Ir para o pagamento" icon="pi pi-wallet">
+				</p:commandButton>
+				<span>Sub total : R$ #{carrinhoController.valorTotal}</span>
 			</div>
 		</div>
 

@@ -18,14 +18,13 @@
 		<div class="container">
 			<div class="details-left">
 			<div class="zoom">
-					<h:graphicImage
-						url="https://imgs.pontofrio.com.br/55014764/1xg.jpg?imwidth=292" />
-						</div>
+					<img src="img-iphone?nome=#{detailsController.entity.id}.png" />
+			</div>
 			</div>
 			<div class="details-right">
 				<section id="info">
 					<h:outputLabel
-						value="iPhone 11 Apple 64GB Preto, Tela de 6,1”, Câmera Dupla de 12MP, iOS" />
+						value="#{detailsController.iphonePersit.modelo.modeloLabel}" />
 						<p>Vendido e entregue por rriphones</p>
 				</section>
 				<section id="price">
@@ -77,6 +76,7 @@
 				</section>
 
 			</div>
+		
 		</div>
 	</ui:define>
 </ui:composition>
